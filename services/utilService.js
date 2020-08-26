@@ -11,7 +11,6 @@ function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 // random color
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -22,7 +21,8 @@ function getRandomColor() {
     return color;
 }
 
-function makeId(length = 5) {
+// MakeId
+function makeId(length = 8) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (var i = 0; i < length; i++) {

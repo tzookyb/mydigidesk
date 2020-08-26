@@ -1,4 +1,4 @@
-const { NavLink, withRouter } = ReactRouterDOM
+const { NavLink, withRouter } = ReactRouterDOM;
 
 
 class _NavBar extends React.Component {
@@ -7,7 +7,6 @@ class _NavBar extends React.Component {
 
 
     render() {
-        console.log('check this');
         return (
             <div>
                     <nav>
