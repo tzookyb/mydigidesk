@@ -14,9 +14,9 @@ export class App extends React.Component {
                     <header>
                         <h1>AppSus</h1>
                         <nav>
-                            <NavLink to={'/'}>Home</NavLink>
-                            <NavLink to={'/mail'}>Mail</NavLink>
+                            <NavLink to={'/mail'}>my-Mail</NavLink>
                             <NavLink to={'/keep'}>Keep</NavLink>
+                            <NavLink to={'/'}>Home</NavLink>
                         </nav>
                     </header>
                     <main>
