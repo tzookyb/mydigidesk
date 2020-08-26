@@ -11,24 +11,31 @@ export class Keep extends React.Component {
     }
 
     componentDidMount() {
-        const filterBy = this.props.match.params.filter;
-        console.log("Keep -> componentDidMount -> filterBy", filterBy)
+        this.setState({ filterBy: this.props.match.params.filter }, this.getNotes);
+    }
 
-        this.setState({ filterBy });
-        keepService.getNotes(filterBy)
+    componentDidUpdate(prevProps) {
+        if (prevProps.location.pathname === this.props.location.pathname) return;
+        else this.routeUpdate();
+    }
+
+    getNotes = () => {
+        keepService.getNotes(this.state.filterBy)
             .then((notes) => {
                 this.setState({ notes })
             })
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        // console.log('props', prevProps, 'state', prevState);
+    routeUpdate = () => {
+        const filterBy = this.props.match.params.filter;
+        this.setState({ filterBy }, this.getNotes);
     }
 
     refresh() {
         keepService.getNotes(this.state.filterBy)
             .then((notes) => {
                 this.setState({ notes })
+                console.log("Keep -> refresh -> notes", notes)
             })
     }
 
@@ -61,7 +68,6 @@ export class Keep extends React.Component {
 
     render() {
         const notes = this.state.notes;
-        console.log("Keep -> render -> notes", notes)
         return (
             <section className="keep-container">
                 <KeepSideBar />

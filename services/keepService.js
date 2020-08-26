@@ -28,7 +28,7 @@ function _createDefaultNotes() {
         type: "text",
         content: { title: 'ATM password', text: 'The ATM password is 1278' },
         isPinned: true,
-        isTrash: true,
+        isTrash: false,
         backgroundColor: 'lightblue',
         labels: [],
     }]
@@ -51,21 +51,30 @@ function _loadNotes() {
 }
 
 function getNotes(filter) {
-    if (filter !== 'allnotes') {
-        const notes = _getFilteredNotes(filter);
+    if (filter === 'trash') {
+        const notes = keepNotes.filter(note => {
+            return note.isTrash
+        })
+        return Promise.resolve(notes)
+    }
+    var notes = keepNotes.filter(note => {
+        return !note.isTrash
+    })
+    if (filter === 'allnotes') {
+        return Promise.resolve(notes);
+    } else {
+        notes = _getFilteredNotes(notes, filter);
         return Promise.resolve(notes);
     }
-    // const notes = _getFilteredNotes('');
-    return Promise.resolve(keepNotes);
 }
 
-function _getFilteredNotes(filter) {
-    const notes = keepNotes.filter(note => {
+function _getFilteredNotes(notes, filter) {
+    const filteredNotes = notes.filter(note => {
         return note.labels.some(label => {
             return label.contains(filter);
         })
     })
-    return notes;
+    return filteredNotes;
 }
 
 function _getNoteIdx(noteId) {
