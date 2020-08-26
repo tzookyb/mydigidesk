@@ -1,0 +1,26 @@
+
+
+
+
+-Choose Color Scheme
+-EventBus
+
+-commonal services
+services:
+storageService
+utils - makeId, randomNum
+
+CSS for Each Component - main css write from line number
+
+Icons
+
+HomePage with Routes (common navbar)
+
+
+
+
+Idan:
+Keep
+
+Daniel:
+Mail
