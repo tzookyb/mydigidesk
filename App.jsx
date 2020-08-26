@@ -1,9 +1,9 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
-import Mail from './apps/mail/pages/Mail.jsx'
-import Keep from './apps/keep/pages/Keep.jsx'
-import Home from './pages/Home.jsx'
+import {Mail} from './apps/mail/pages/Mail.jsx'
+import {Keep} from './apps/keep/pages/Keep.jsx'
+import {Home} from './pages/Home.jsx'
 import {NavBar} from './cmps/NavBar.jsx'
 
 export class App extends React.Component {
@@ -12,11 +12,12 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <Router>
-                    <header>
-                        <h1>AppSus</h1>
+                    <header className="main-header">
+
                         <NavBar/>
                     </header>
                     <main>
+
                         <Switch>
                             <Route to component={Mail} path="/mail" />
                             <Route to component={Keep} path="/keep" />

@@ -1,4 +1,4 @@
-export default class Keep extends React.Component {
+export class Keep extends React.Component {
 
     render() {
         return (

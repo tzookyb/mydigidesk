@@ -1,4 +1,4 @@
-export default class Mail extends React.Component {
+export class Mail extends React.Component {
 
     render() {
         return (
