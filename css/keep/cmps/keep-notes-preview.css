@@ -1,0 +1,51 @@
+.note-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #292929;
+    width: 30%;
+    min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #292929;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-title {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.note-content {
+    padding: 5px;
+}
+
+.note-controls>* {
+    visibility: hidden;
+}
+
+.note-controls:hover>* {
+    visibility: visible;
+}
+
+.note-controls {
+    display: flex;
+    justify-content: space-around;
+    height: 20px;
+}
+
+.note-pin {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.note-btn {}
+
+.note-trash {}
+
+.note-bgc {}
+
+.note-mail {}
