@@ -1,9 +1,10 @@
 const Router = ReactRouterDOM.HashRouter
-const { Route, Switch, NavLink } = ReactRouterDOM
+const { Route, Switch } = ReactRouterDOM
 
-import Mail from './pages/Mail.jsx'
-import Keep from './pages/Keep.jsx'
+import Mail from './apps/mail/pages/Mail.jsx'
+import Keep from './apps/keep/pages/Keep.jsx'
 import Home from './pages/Home.jsx'
+import {NavBar} from './cmps/NavBar.jsx'
 
 export class App extends React.Component {
 
@@ -13,11 +14,7 @@ export class App extends React.Component {
                 <Router>
                     <header>
                         <h1>AppSus</h1>
-                        <nav>
-                            <NavLink to={'/mail'}>my-Mail</NavLink>
-                            <NavLink to={'/keep'}>Keep</NavLink>
-                            <NavLink to={'/'}>Home</NavLink>
-                        </nav>
+                        <NavBar/>
                     </header>
                     <main>
                         <Switch>
