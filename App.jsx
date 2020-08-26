@@ -1,8 +1,10 @@
 const Router = ReactRouterDOM.HashRouter
-const { Route, Switch } = ReactRouterDOM
+const { Route, Switch, NavLink } = ReactRouterDOM
+
 import Mail from './pages/Mail.jsx'
 import Keep from './pages/Keep.jsx'
 import Home from './pages/Home.jsx'
+
 export class App extends React.Component {
 
     render() {
@@ -19,9 +21,9 @@ export class App extends React.Component {
                     </header>
                     <main>
                         <Switch>
-                            <Route to component={Mail} path="/mail"></Route>
-                            <Route to component={Keep} path="/keep"></Route>
-                            <Route to component={Home} path="/"></Route>
+                            <Route to component={Mail} path="/mail" />
+                            <Route to component={Keep} path="/keep" />
+                            <Route to component={Home} path="/" />
                         </Switch>
                     </main>
                 </Router>
@@ -29,4 +31,3 @@ export class App extends React.Component {
         )
     }
 }
-
