@@ -1,8 +1,5 @@
-
-
-
-
 -Choose Color Scheme
+
 -EventBus
 
 -commonal services
