@@ -3,6 +3,8 @@
     margin: 0;
 }
 
+@import 'mail/mail.css';
+
 body {
     background-color: lightblue;
 }
@@ -17,3 +19,5 @@ main {
     height: calc(100vh - 4rem);
     background-color: beige;
 }
+
+

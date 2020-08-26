@@ -1,1 +1,10 @@
 /* Mail CSS */
+
+/* @import url("./cmps/mail-filter.css"); */
+
+
+.email-filter-container {
+    width: 100%;
+    background-color: burlywood;
+    font-size: 200px;
+}
