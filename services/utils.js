@@ -1,3 +1,9 @@
+export const utilService = {
+    getRandomInteger,
+    getRandomColor,
+    makeId
+}
+
 // returns random numbers
 function getRandomInteger(min, max) {
     min = Math.ceil(min);
