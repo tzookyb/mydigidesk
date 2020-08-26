@@ -1,14 +1,20 @@
 import { keepService } from '../../../services/keepService.js'
+import { KeepSideBar } from '../cmps/KeepSideBar.jsx'
+import { KeepAddNote } from '../cmps/KeepAddNote.jsx';
+import { KeepPreviewNotes } from '../cmps/KeepPreviewNotes.jsx';
 
 export class Keep extends React.Component {
 
     state = {
         notes: [],
-
+        filterBy: '',
     }
 
     componentDidMount() {
-        keepService.getNotes()
+        const filterBy = this.props.match.params.filter;
+        console.log("Keep -> componentDidMount -> filterBy", filterBy)
+        this.setState({ filterBy });
+        keepService.getNotes(filterBy)
             .then((notes) => {
                 this.setState({ notes })
             })
@@ -16,10 +22,16 @@ export class Keep extends React.Component {
 
 
     render() {
+        const notes = this.state.notes;
+        console.log("Keep -> render -> notes", notes)
         return (
-            <React.Fragment>
-                <h2>Keep</h2>
-            </React.Fragment>
+            <section className="keep-container">
+                <KeepSideBar />
+                <div className="keep-main-area">
+                    <KeepAddNote />
+                    <KeepPreviewNotes notes={this.state.notes} />
+                </div>
+            </section>
         )
     }
 }

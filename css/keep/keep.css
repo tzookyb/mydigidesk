@@ -1,0 +1,15 @@
+.keep-container {
+    display: flex;
+    height: 100%;
+}
+
+.keep-main-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.keep-preview-notes{
+    
+}

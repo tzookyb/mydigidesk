@@ -1,5 +1,7 @@
 @import '/css/keep/keep.css';
-
+@import '/css/keep//cmps/keep-addnote.css';
+@import '/css/keep//cmps/keep-notes-preview.css';
+@import '/css/keep//cmps/keep-sidebar.css';
 * {
     box-sizing: border-box;
     margin: 0;

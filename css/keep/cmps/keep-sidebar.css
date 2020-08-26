@@ -1,0 +1,6 @@
+.keep-sidebar {
+    max-width: 150px;
+    flex-grow: 1;
+    background-color: lightgray;
+    height: 100%;
+}
