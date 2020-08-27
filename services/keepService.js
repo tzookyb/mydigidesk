@@ -134,10 +134,11 @@ function _getFilteredNotes(notes, filter) {
 function _mapLabels() {
     mapLabels = {};
     keepNotes.forEach(note => {
+        if (!note.isTrash) {
         note.labels.forEach(label => {
             if (!mapLabels[label]) mapLabels[label] = 0;
             mapLabels[label]++;
-        })
+        })}
     })
 }
 
@@ -165,6 +166,7 @@ function createNote(data) {
     }
     keepNotes.push(note);
     _saveNotes();
+    _mapLabels();
     return Promise.resolve();
 }
 
@@ -174,7 +176,7 @@ function updateNote(noteId, key, data) {
     note[key] = data;
     keepNotes.splice(idx, 1, note);
     _saveNotes();
-    if (key === 'labels') _mapLabels();
+    _mapLabels();
     return Promise.resolve();
 }
 
@@ -182,6 +184,7 @@ function removeNote(noteId) {
     const idx = _getNoteIdx(noteId);
     keepNotes.splice(idx, 1);
     _saveNotes();
+    _mapLabels();
     return Promise.resolve();
 }
 

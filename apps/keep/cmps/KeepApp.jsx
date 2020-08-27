@@ -1,7 +1,7 @@
 import { keepService } from '../../../services/keepService.js'
-import { KeepSideBar } from '../cmps/KeepSideBar.jsx'
-import { KeepAddNote } from '../cmps/KeepAddNote.jsx';
-import { KeepPreviewNotes } from '../cmps/KeepPreviewNotes.jsx';
+import { KeepSideBar } from './KeepSideBar.jsx'
+import { KeepAddNote } from './KeepAddNote.jsx';
+import { KeepPreviewNotes } from './KeepPreviewNotes.jsx';
 
 export class Keep extends React.Component {
 
