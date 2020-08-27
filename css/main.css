@@ -5,10 +5,8 @@
 @import '/css/keep/cmps/keep-controls.css';
 @import '/css/keep/cmps/keep-colorpalette.css';
 @import '/css/keep/cmps/keep-labeleditor.css';
-
 @import '/css/mail/mail.css';
 @import '/css/mail/upper-control.css';
-
 @font-face {
     font-family: Roboto-light;
     src: url(/css/mail/fonts/Roboto/Roboto-Light.ttf);
