@@ -2,20 +2,37 @@
 import { MailPreviewList } from '../cmps/MailPreviewList.jsx'
 import { MailSideBar } from '../cmps/MailSideBar.jsx'
 import { MailFilterBy } from '../cmps/MailFilterBy.jsx'
-const { Route } = ReactRouterDOM;
+import { MailDetails } from '../cmps/MailDetails.jsx'
+const { Route, Switch } = ReactRouterDOM;
 
 
 export class Mail extends React.Component {
 
     render() {
-        
+
         return (
             <section>
                 <h2>Mail</h2>
-                <Route component={ MailFilterBy } />
-                <Route component={ MailSideBar } />
-                <Route component={ MailPreviewList } props={this.props}/>
+                <MailFilterBy />
+                <MailSideBar />
+
+                <Switch>
+                    <Route component={ MailDetails } path="/mail/:category?/details/:mailId" /> 
+
+                    <Route component={ MailPreviewList } path="/mail/starred" />
+                    <Route component={ MailPreviewList } path="/mail/sent" />
+                    <Route component={ MailPreviewList } path="/mail/archived" />
+                    <Route component={ MailPreviewList } path="/mail/all" />
+                    <Route component={ MailPreviewList } path="/mail" />
+
+                </Switch>
+                
             </section>
         )
     }
 }
+
+
+// under the routes, we'll insert the mail details cmp
+
+{/* <Route component={MailDetails} path="/mail/:category?/details/:mailId?" /> */}
