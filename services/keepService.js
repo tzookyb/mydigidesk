@@ -20,7 +20,27 @@ function _createDefaultNotes() {
         content: { title: 'bank password', text: 'The bank password is 56347' },
         isPinned: false,
         isTrash: false,
-        backgroundColor: 'yellow',
+        backgroundColor: '#ffffff',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
+        type: "text",
+        content: {
+            title: 'Haiku I Wrote', text: `An old silent pond..
+        A frog jumps into the pond,
+            splash! Silence again.
+        
+        Autumn moonlight-
+            a worm digs silently
+        into the chestnut.
+        
+        In the twilight rain
+        these brilliant- hued hibiscus -
+    A lovely sunset.` },
+        isPinned: true,
+        isTrash: false,
+        backgroundColor: '#f28b82',
         labels: [],
     },
     {
@@ -29,7 +49,34 @@ function _createDefaultNotes() {
         content: { title: 'ATM password', text: 'The ATM password is 1278' },
         isPinned: true,
         isTrash: false,
-        backgroundColor: 'lightblue',
+        backgroundColor: '#fbbc04',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
+        type: "text",
+        content: { title: 'ATM password', text: 'The ATM password is 1278' },
+        isPinned: true,
+        isTrash: false,
+        backgroundColor: '#fff475',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
+        type: "text",
+        content: { title: 'ATM password', text: 'The ATM password is 1278' },
+        isPinned: true,
+        isTrash: false,
+        backgroundColor: '#ccff90',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
+        type: "text",
+        content: { title: 'ATM password', text: 'The ATM password is 1278' },
+        isPinned: true,
+        isTrash: false,
+        backgroundColor: '#a7ffeb',
         labels: [],
     }]
 }

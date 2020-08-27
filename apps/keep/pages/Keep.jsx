@@ -39,41 +39,54 @@ export class Keep extends React.Component {
             })
     }
 
-    noteTrash = (note, unTrash = false) => {
-        if (note.isTrash && !unTrash) {
+    onNoteTrash = (note, restore = false) => {
+        if (note.isTrash && !restore) {
             keepService.removeNote(note.id)
                 .then(this.refresh());
         } else {
             const status = note.isTrash ? false : true;
+            if (!status && note.isPinned) this.onNotePin(note);
             keepService.updateNote(note.id, 'isTrash', status)
                 .then(this.refresh());
         }
     }
 
-    noteBgc = (noteId) => {
+    onNoteBgc = (noteId, color) => {
+        console.log("Keep -> noteBgc -> color", color)
         console.log("Keep -> noteBgc -> noteId", noteId)
+        keepService.updateNote(noteId, 'backgroundColor', color)
+            .then(this.refresh());
 
     }
-    notePin = (note) => {
+    onNotePin = (note) => {
         const status = note.isPinned ? false : true;
         keepService.updateNote(note.id, 'isPinned', status)
             .then(this.refresh());
     }
 
-    noteMail = (noteId) => {
-        console.log("Keep -> noteMail -> noteId", noteId)
-
+    onNoteMail = (note) => {
+        console.log("Keep -> noteMail -> noteId", note)
     }
 
 
     render() {
-        const notes = this.state.notes;
+        const pinnedNotes = this.state.notes.filter(note => note.isPinned);
+        const notes = this.state.notes.filter(note => !note.isPinned);
+        const props = {
+            currFilter: this.state.filterBy,
+            onNoteTrash: this.onNoteTrash,
+            onNoteBgc: this.onNoteBgc,
+            onNotePin: this.onNotePin,
+            onNoteMail: this.onNoteMail,
+        }
+
         return (
             <section className="keep-container">
                 <KeepSideBar />
                 <div className="keep-main-area">
                     <KeepAddNote />
-                    <KeepPreviewNotes currFilter={this.state.filterBy} notes={notes} noteTrash={this.noteTrash} noteBgc={this.noteBgc} notePin={this.notePin} noteMail={this.noteMail} />
+                    {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
+                    {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
                 </div>
             </section>
         )
