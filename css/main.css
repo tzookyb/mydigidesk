@@ -1,14 +1,14 @@
 @import '/css/keep/keep.css';
-@import '/css/keep//cmps/keep-addnote.css';
-@import '/css/keep//cmps/keep-notes-preview.css';
-@import '/css/keep//cmps/keep-sidebar.css';
+@import '/css/keep/cmps/keep-addnote.css';
+@import '/css/keep/cmps/keep-notes-preview.css';
+@import '/css/keep/cmps/keep-sidebar.css';
+@import '/css/keep/cmps/keep-controls.css';
 * {
     box-sizing: border-box;
     margin: 0;
 }
 
 @import 'mail/mail.css';
-
 body {
     background-color: lightblue;
 }
@@ -23,5 +23,3 @@ main {
     height: calc(100vh - 4rem);
     background-color: beige;
 }
-
-

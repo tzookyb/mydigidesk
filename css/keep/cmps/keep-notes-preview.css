@@ -1,0 +1,87 @@
+.pinned-notes::before {
+    content: "Pinned";
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: small;
+}
+
+.pinned-notes, .unpinned-notes {
+    position: relative;
+    width: 100%;
+    margin: 10px;
+    columns: 3;
+    column-gap: 1rem;
+}
+
+.unpinned-notes {
+    border-top: 1px solid rgba(150, 150, 150, 0.5);
+}
+
+.note-card {
+    display: inline-block;
+    position: relative;
+    min-height: ;
+    background-color: #fff;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+    width: 100%;
+    margin: 5px;
+    transition: box-shadow 0.3s;
+}
+
+.note-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-card:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
+}
+
+.note-card:hover .note-controls>* {
+    visibility: visible;
+}
+
+.note-title {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    font-weight: 600;
+}
+
+.note-content {
+    padding: 5px;
+}
+
+.note-controls>* {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.note-controls {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.note-pin {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.note-btn {}
+
+.note-trash {}
+
+.note-restore {}
+
+.note-bgc {
+    position: relative;
+}
+
+.note-mail {}
+
+.note-label {}

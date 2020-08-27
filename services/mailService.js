@@ -1,5 +1,3 @@
-console.log('break a leg');
-
 export const mailService = {
     getAllEmails,
     // getEmailsForDisplay,

@@ -11,7 +11,7 @@ export class KeepAddNote extends React.Component {
     render() {
         return (
             <div>
-                <input className="add-note-input" onChange={(ev) => this.ChangeInput(ev.target.value)} value={this.state.addNoteInput} placeholder="Insert text on new note..." type="text" />
+                <input className="add-note-input" onChange={(ev) => this.ChangeInput(ev.target.value)} value={this.state.addNoteInput} placeholder="Insert text on new note..." type="search" />
             </div>
         )
     }
