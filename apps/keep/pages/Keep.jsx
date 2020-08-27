@@ -68,6 +68,9 @@ export class Keep extends React.Component {
         console.log("Keep -> noteMail -> noteId", note)
     }
 
+    onNoteLabel = (note, labels) => {
+        console.log(note, labels);
+    }
 
     render() {
         const pinnedNotes = this.state.notes.filter(note => note.isPinned);
@@ -77,6 +80,7 @@ export class Keep extends React.Component {
             onNoteTrash: this.onNoteTrash,
             onNoteBgc: this.onNoteBgc,
             onNotePin: this.onNotePin,
+            onNoteLabel: this.onNoteLabel,
             onNoteMail: this.onNoteMail,
         }
 
