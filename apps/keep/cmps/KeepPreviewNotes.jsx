@@ -2,7 +2,7 @@ import { Title } from './note/Title.jsx'
 import { Content } from './note/Content.jsx';
 import { Controls } from './note/Controls.jsx';
 
-export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, onNoteBgc, onNotePin, onNoteMail }) {
+export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, onNoteBgc, onNotePin, onNoteMail, onNoteLabel }) {
     const trashView = (currFilter === 'trash') ? true : false;
 
     return (
@@ -13,7 +13,7 @@ export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, on
                         <div className="note-inner">
                             <Title title={note.content.title} />
                             <Content content={note.content.text} />
-                            <Controls note={note} trashView={trashView} onNoteTrash={onNoteTrash} onNotePin={onNotePin} onNoteBgc={onNoteBgc} onNoteMail={onNoteMail} />
+                            <Controls note={note} trashView={trashView} onNoteTrash={onNoteTrash} onNotePin={onNotePin} onNoteBgc={onNoteBgc} onNoteMail={onNoteMail} onNoteLabel={onNoteLabel} />
                         </div>
                     </div >
                 )

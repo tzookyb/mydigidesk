@@ -1,7 +1,6 @@
 import { utilService } from './utilService.js'
 import { storageService } from './storageService.js'
 
-
 export const keepService = {
     getNotes,
     createNote,
@@ -9,9 +8,18 @@ export const keepService = {
     searchNotes,
     updateNote,
     getNoteById,
+    getLabels,
 }
 
 var keepNotes = [];
+var mapLabels;
+
+init();
+function init() {
+    _loadNotes();
+    _mapLabels();
+}
+
 
 function _createDefaultNotes() {
     keepNotes = [{
@@ -41,7 +49,7 @@ function _createDefaultNotes() {
         isPinned: true,
         isTrash: false,
         backgroundColor: '#f28b82',
-        labels: [],
+        labels: ['Spiritual'],
     },
     {
         id: utilService.makeId(),
@@ -50,7 +58,7 @@ function _createDefaultNotes() {
         isPinned: true,
         isTrash: false,
         backgroundColor: '#fbbc04',
-        labels: [],
+        labels: ['Work', 'Personal'],
     },
     {
         id: utilService.makeId(),
@@ -59,7 +67,7 @@ function _createDefaultNotes() {
         isPinned: true,
         isTrash: false,
         backgroundColor: '#fff475',
-        labels: [],
+        labels: ['Personal'],
     },
     {
         id: utilService.makeId(),
@@ -85,7 +93,6 @@ function _saveNotes() {
     storageService.save('keepNotes', keepNotes);
 }
 
-_loadNotes()
 function _loadNotes() {
     const loadedNotes = storageService.load('keepNotes');
     if (!loadedNotes || !loadedNotes.length) {
@@ -118,10 +125,24 @@ function getNotes(filter) {
 function _getFilteredNotes(notes, filter) {
     const filteredNotes = notes.filter(note => {
         return note.labels.some(label => {
-            return label.contains(filter);
+            return (label === filter);
         })
     })
     return filteredNotes;
+}
+
+function _mapLabels() {
+    mapLabels = {};
+    keepNotes.forEach(note => {
+        note.labels.forEach(label => {
+            if (!mapLabels[label]) mapLabels[label] = 0;
+            mapLabels[label]++;
+        })
+    })
+}
+
+function getLabels() {
+    return Promise.resolve(mapLabels)
 }
 
 function _getNoteIdx(noteId) {
@@ -151,9 +172,9 @@ function updateNote(noteId, key, data) {
     const idx = _getNoteIdx(noteId);
     const note = getNoteById(noteId);
     note[key] = data;
-    console.log("updateNote -> note", note)
     keepNotes.splice(idx, 1, note);
     _saveNotes();
+    if (key === 'labels') _mapLabels();
     return Promise.resolve();
 }
 
@@ -172,30 +193,3 @@ function searchNotes(string) {
 function getNoteById(noteId) {
     return keepNotes.find(note => note.id === noteId);
 }
-// function addLabel(noteId, label) {
-//     const note = keepNotes[_getNoteIdx(noteId)];
-
-//     _saveNotes();
-//     return Promise.resolve();
-// }
-
-// function removeLabel(noteId, label) {
-//     const note = keepNotes[_getNoteIdx(noteId)];
-
-//     _saveNotes();
-//     return Promise.resolve();
-// }
-
-// function isTrashNote(noteId, status) {
-//     const note = keepNotes[_getNoteIdx(noteId)]
-//     note.isTrash = status;
-//     _saveNotes();
-//     return Promise.resolve();
-// }
-
-// function isPinNote(noteId, status) {
-//     const note = keepNotes[_getNoteIdx(noteId)]
-//     note.isPinned = status;
-//     _saveNotes();
-//     return Promise.resolve();
-// }

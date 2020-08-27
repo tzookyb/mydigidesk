@@ -13,7 +13,7 @@ export function Controls({ note, trashView, onNoteTrash, onNotePin, onNoteBgc, o
             <Remove note={note} onNoteTrash={() => onNoteTrash(note)} noteIsTrash={note.isTrash} />
             {trashView && <Restore note={note} onNoteTrash={onNoteTrash} />}
             <ColorPalette note={note} onNoteBgc={onNoteBgc} />
-            <LabelEditor note={note} onNoteLabel={onNoteLabel}/>
+            <LabelEditor note={note} onNoteLabel={onNoteLabel} />
             <MailNote note={note} onNoteMail={onNoteMail} />
         </div>
     )
