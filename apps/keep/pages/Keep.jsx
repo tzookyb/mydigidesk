@@ -8,15 +8,22 @@ export class Keep extends React.Component {
     state = {
         notes: [],
         filterBy: '',
+        labels: {},
     }
 
     componentDidMount() {
-        this.setState({ filterBy: this.props.match.params.filter }, this.getNotes);
+        this.setState({ filterBy: this.props.match.params.filter }, this.refresh);
     }
+
 
     componentDidUpdate(prevProps) {
         if (prevProps.location.pathname === this.props.location.pathname) return;
         else this.routeUpdate();
+    }
+
+    refresh() {
+        this.getNotes();
+        this.getLabels();
     }
 
     getNotes = () => {
@@ -26,17 +33,16 @@ export class Keep extends React.Component {
             })
     }
 
+    getLabels = () => {
+        keepService.getLabels()
+            .then(labels => {
+                this.setState({ labels })
+            })
+    }
+
     routeUpdate = () => {
         const filterBy = this.props.match.params.filter;
         this.setState({ filterBy }, this.getNotes);
-    }
-
-    refresh() {
-        keepService.getNotes(this.state.filterBy)
-            .then((notes) => {
-                this.setState({ notes })
-                console.log("Keep -> refresh -> notes", notes)
-            })
     }
 
     onNoteTrash = (note, restore = false) => {
@@ -52,8 +58,6 @@ export class Keep extends React.Component {
     }
 
     onNoteBgc = (noteId, color) => {
-        console.log("Keep -> noteBgc -> color", color)
-        console.log("Keep -> noteBgc -> noteId", noteId)
         keepService.updateNote(noteId, 'backgroundColor', color)
             .then(this.refresh());
 
@@ -68,6 +72,16 @@ export class Keep extends React.Component {
         console.log("Keep -> noteMail -> noteId", note)
     }
 
+    onNoteLabel = (note, label) => {
+        const idx = note.labels.findIndex(exstLabel => (exstLabel === label));
+        if (idx === -1) {
+            note.labels.push(label)
+        } else {
+            note.labels.splice(idx, 1);
+        }
+        keepService.updateNote(note.id, 'labels', note.labels)
+            .then(this.refresh())
+    }
 
     render() {
         const pinnedNotes = this.state.notes.filter(note => note.isPinned);
@@ -77,12 +91,13 @@ export class Keep extends React.Component {
             onNoteTrash: this.onNoteTrash,
             onNoteBgc: this.onNoteBgc,
             onNotePin: this.onNotePin,
+            onNoteLabel: this.onNoteLabel,
             onNoteMail: this.onNoteMail,
         }
 
         return (
             <section className="keep-container">
-                <KeepSideBar />
+                <KeepSideBar labels={this.state.labels} />
                 <div className="keep-main-area">
                     <KeepAddNote />
                     {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}

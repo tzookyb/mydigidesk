@@ -1,20 +1,32 @@
-.palette {
-    position: absolute;
-    z-index: 2;
-    display: grid;
-    background-color: white;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid grey;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
-    transform: translateX(-25%);
+.note-controls>* {
+    visibility: hidden;
+    cursor: pointer;
 }
 
-.color-picker {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid rgb(156, 156, 156);
-    margin: 3px;
+.note-controls {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
 }
+
+.note-pin {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.note-bgc {
+    position: relative;
+}
+
+.note-label {
+    position: relative;
+}
+
+/* .note-btn {}
+
+.note-trash {}
+
+.note-restore {}
+
+.note-mail {} */

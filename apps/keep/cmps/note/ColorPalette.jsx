@@ -4,8 +4,7 @@ export class ColorPalette extends React.Component {
     }
 
     onShowPalette = () => {
-        const status = this.state.isShown ? false : true;
-        this.setState({ isShown: status });
+        this.setState(prevState => ({ isShown: !prevState.isShown }));
     }
 
     onChange = (color) => {
@@ -40,9 +39,8 @@ export class ColorPalette extends React.Component {
         })
 
         return (
-
-            <div className="note-btn note-bgc" >
-                return<div className="note-btn note-bgc" onClick={this.onShowPalette}> Bgc</div >
+            <div>
+                <div className="note-btn note-bgc" onClick={this.onShowPalette}> Bgc</div >
                 {this.state.isShown && <div className="palette">
                     {colorsDivs}
                 </div>}

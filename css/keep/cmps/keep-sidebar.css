@@ -1,6 +1,20 @@
 .keep-sidebar {
-    max-width: 150px;
-    flex-grow: 1;
     background-color: lightgray;
     height: 100%;
+    min-width: 150px;
+}
+
+.label-link:hover {
+background-color: rgb(230, 255, 87);
+}
+.label-link {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.label-count {
+    color: rgb(151, 151, 151);
+    font-size: small;
 }
