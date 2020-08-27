@@ -1,25 +1,30 @@
 const { NavLink, Switch, Route } = ReactRouterDOM;
+import { ListControlsLeft } from '../cmps/controls/ListControlsLeft.jsx'
+import { ListControlsRight } from '../cmps/controls/ListControlsRight.jsx'
 
 export class MailPreview extends React.Component {
 
 
     render() {
-        // console.log('match', this.props.properties.location.pathname)
         const currLocation = this.props.properties.location.pathname
-        
+
         return (
-            // here will be the controls
+            <div className="email-item-container">
+                <div className="list-item" >
+                    <ListControlsLeft />
 
-            <NavLink to={`${currLocation}/details/${this.props.email.id}`} props={this.props}>
-                <div>
-                    <div key={this.props.email.id}>
-                        <h2>{this.props.email.name}</h2>
-                        <p>{this.props.email.subject}</p>
-                        <p>{this.props.email.body}</p>
-                    </div>
-
+                    <NavLink className="list-item-details-container" to={`${currLocation}/details/${this.props.email.id}`} props={this.props}>
+                        <div className="list-item-details" key={this.props.email.id}>
+                            <p className="item-name">{this.props.email.name}</p>
+                            <p className="item-subject">{this.props.email.subject} </p>
+                            {/* <p className="item-body"> {this.props.email.body}</p> */}
+                        </div>
+                    </NavLink>
+                    <ListControlsRight />
                 </div>
-            </NavLink>
+            </div>
+
+
         )
     }
 }

@@ -1,10 +1,191 @@
-/* Mail CSS */
-
-/* @import url("./cmps/mail-filter.css"); */
-
-
-.email-filter-container {
-    width: 100%;
-    background-color: burlywood;
-    font-size: 200px;
+@font-face {
+    font-family: Roboto-light;
+    src: url(/css/mail/fonts/Roboto/Roboto-Light.ttf);
 }
+
+@font-face {
+    font-family: Roboto-medium;
+    src: url(/css/mail/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url(/css/mail/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto-regular;
+    src: url(/css/mail/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto-black;
+    src: url(/css/mail/fonts/Roboto/Roboto-Black.ttf);
+}
+
+
+
+
+body {
+    background-color: white;
+    font-family: Roboto-regular;
+}
+
+a {
+    text-decoration: none;
+    color: #242424
+}
+
+.main-email-section {
+    display: flex;
+}
+
+/* COMPOSE BTN */
+
+.compose-btn {
+    font-size: 1em;
+
+    cursor: pointer;
+    outline: none;
+    padding: 1.2em;
+    border-radius: 3em;
+    width: 70%;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px -5px rgba(0, 0, 0, 0.76);
+    margin: 1rem 0.2rem;
+    transition: 250ms;
+
+}
+
+.compose-btn:hover {
+    box-shadow: 0px 8px 20px -5px rgba(0, 0, 0, 0.8);
+    transition: 250ms;
+}
+
+/* SIDEBAR */
+
+.active-side-menu {
+    background-color: #bbbbbb83;
+    border-radius: 0em 2em 2em 0em;
+    font-family: Roboto-medium;
+
+}
+
+.side-bar-item {
+    padding: 0.55rem;
+    width: 90%;
+
+}
+
+.side-bar-item:hover {
+    background-color: #bbbbbb83;
+    border-radius: 0em 2em 2em 0em;
+}
+
+
+.mail-sidebar-container {
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 18rem;
+    box-sizing: border-box;
+    border-right: 1px solid #fafafa;
+}
+
+
+
+
+
+/* LIST */
+
+.main-body-section {
+    width: 100%;
+}
+
+.mail-cmp-container {
+    width: 100%;
+}
+
+.email-item-container {
+    width: 100%;
+}
+
+
+.list-item {
+    border-bottom: 0.05px solid rgba(221, 221, 221, 0.611);
+    /* padding: 0.7rem 0rem; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item:hover {
+    box-shadow: 0px 3px 13px -5px rgba(0, 0, 0, 0.75);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);
+}
+
+.item-name {
+    font-family: Roboto-bold;
+    width: 24%;
+    /* margin-right: 3rem; */
+    /* font-weight: bold; */
+}
+
+/* .item-subject {} */
+
+.item-subdetails-container {
+    display: flex;
+    width: 100%;
+}
+
+.list-item-details-container {
+    width: 100%;
+    align-self: flex-start;
+}
+
+.list-item-details {
+    display: flex;
+    height: 100%;
+    padding: 0.7rem 0rem;
+    /* justify-content: space-between; */
+}
+
+/* LIST - CONTROLS */
+
+.list-item:hover>.list-left-controls {
+    opacity: 1;
+
+}
+
+.list-item:hover>.list-right-controls {
+    opacity: 1;
+}
+
+.list-left-controls {
+    background-color: violet;
+    width: 10rem;
+    cursor: pointer;
+    opacity: 0; 
+}
+
+.list-right-controls {
+    background-color: violet;
+    width: 14rem;
+    cursor: pointer;
+    opacity: 0;
+}
+
+
+/* READ */
+
+.is-read {
+    background-color: #F4F7F7;
+}
+

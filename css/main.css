@@ -3,9 +3,40 @@
 @import '/css/keep/cmps/keep-notes-preview.css';
 @import '/css/keep/cmps/keep-sidebar.css';
 @import '/css/keep/cmps/keep-controls.css';
+
+@import '/css/mail/mail.css';
+@import '/css/mail/upper-control.css';
+
+@font-face {
+    font-family: Roboto-light;
+    src: url(/css/mail/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto-medium;
+    src: url(/css/mail/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url(/css/mail/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto-regular;
+    src: url(/css/mail/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto-black;
+    src: url(/css/mail/fonts/Roboto/Roboto-Black.ttf);
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: Roboto-regular;
 }
 
 @import 'mail/mail.css';
@@ -21,5 +52,5 @@ body {
 
 main {
     height: calc(100vh - 4rem);
-    background-color: beige;
+    background-color: white;
 }

@@ -58,7 +58,6 @@ export class MailPreviewList extends React.Component {
 
         return (
             <div className="mail-cmp-container">
-
                 {emails.map(email => {
                     return (
                         <MailPreview key={ email.id } email={ email } properties={this.props} />
@@ -68,8 +67,3 @@ export class MailPreviewList extends React.Component {
         )
     }
 }
-
-
-// <Link to={`/mail/${category}?/${email.id}?`}>
-//     <MailPreview key={email.id} email={email} />
-// </Link>
