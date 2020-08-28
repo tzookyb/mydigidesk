@@ -74,6 +74,27 @@ input:focus, textarea:focus, select:focus {
     outline: none;
 }
 
+.notify {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 5;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgb(67, 64, 255);
+    color: white;
+    font-size: 0.8rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.notify.shown {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;

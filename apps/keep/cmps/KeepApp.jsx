@@ -3,6 +3,7 @@ import { KeepSideBar } from 'KeepSideBar.jsx'
 import { KeepAddNote } from 'KeepAddNote.jsx';
 import { KeepPreviewNotes } from 'KeepPreviewNotes.jsx';
 import { KeepNoteDetails } from 'KeepNoteDetails.jsx'
+import { EventBus } from '../../../services/event-bus-service.js'
 
 export class Keep extends React.Component {
 
@@ -71,6 +72,7 @@ export class Keep extends React.Component {
     }
 
     onNoteMail = (note) => {
+        EventBus.emit('notify', 'Note sent to mail!')
         console.log("Keep -> noteMail -> noteId", note)
     }
 
