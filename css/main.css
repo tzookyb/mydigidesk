@@ -8,6 +8,7 @@
 
 @import '/css/mail/mail.css';
 @import '/css/mail/upper-control.css';
+@import '/css/mail/cmps/mail-details.css';
 
 @font-face {
     font-family: Roboto-light;

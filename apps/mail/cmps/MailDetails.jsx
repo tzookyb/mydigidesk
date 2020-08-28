@@ -2,7 +2,7 @@ import { mailService } from '../../../services/mailService.js'
 
 export class MailDetails extends React.Component {
 
-    state={
+    state = {
         currEmail: null
     }
 
@@ -10,30 +10,40 @@ export class MailDetails extends React.Component {
         this.loadEmail()
     }
 
-    loadEmail(){
+    loadEmail() {
         mailService.getEmailbyId(this.props.match.params.mailId)
             .then(email => this.setState({ currEmail: email }))
     }
-    
+
 
 
     render() {
 
 
-        if(!this.state.currEmail) return <h4>Loading...</h4>
+        if (!this.state.currEmail) return <h4>Loading...</h4>
         const currEmail = this.state.currEmail
-        console.log(this.state.currEmail);
+        if (!currEmail.isRead) currEmail.isRead = true
 
-        console.log(this.props)
-        console.log(this.props.match.params.mailId)
-        
         return (
-            <div>
-                <h1>{currEmail.subject}</h1>
-                <h3>{currEmail.subject} - <span>{currEmail.date}</span></h3>
-                <h4>by: {currEmail.name}</h4>
-                <br/>
-                <p>{currEmail.body}</p>
+            <div className="mail-details-container">
+
+
+                {/* <div className="mail-details-body-continaer"> */}
+                <h1 className="mail-details-header">{currEmail.subject}</h1>
+                <div className="mail-details-subheader">
+                    <div className="mail-details-icon"></div>
+                    <h4 className="mail-details-name">{currEmail.name} <span className="mail-details-address">{`<${currEmail.address}>`}</span></h4>
+                    <div className="mail-details-date">
+                        <p>{currEmail.date}</p>
+                    </div>
+                </div>
+                <p className="mail-details-body">{currEmail.body}</p>
+                {/* </div> */}
+
+
+
+
+
             </div>
         )
     }

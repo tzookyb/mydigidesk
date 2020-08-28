@@ -1,0 +1,71 @@
+               /* mail-details-container */
+               
+               /* <h1 className="mail-details-header"> {
+                    currEmail.subject
+                }
+
+                </h1><hr /><div className="mail-details-subheader"><div className="mail-details-icon"></div><h4 className="mail-details-name">by: {
+                    currEmail.name
+                }
+
+                </h4><p className="mail-details-date"> {
+                    currEmail.date
+                }
+
+                </p></div><hr /><p className="mail-details-body"> {
+                    currEmail.body
+                }
+
+                </p></div> */
+
+
+.mail-details-container{
+    /* background-color: cornsilk; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.mail-details-header{
+    margin: 2rem;
+    font-size: 1.5em;
+    font-family: Roboto-light;
+
+}
+
+.mail-details-subheader{
+    display: flex;
+    width: calc(100% - 4rem);
+    margin: 0rem 2rem ;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.mail-details-icon{
+    width: 3rem;
+    height: 3rem;
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.mail-details-name{
+    justify-self: flex-start;
+    flex-grow: 1;
+}
+
+.mail-details-body{
+    margin-left: 2.25rem;
+}
+
+.mail-details-address{
+    font-family: Roboto-light;
+    font-size: 0.85em;
+    color: rgb(124, 124, 124);
+}
+

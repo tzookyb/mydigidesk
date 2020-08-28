@@ -5,12 +5,17 @@ import { ListControlsRight } from '../cmps/controls/ListControlsRight.jsx'
 export class MailPreview extends React.Component {
 
 
+
+
+
+
     render() {
         const currLocation = this.props.properties.location.pathname
+        const isRead = this.props.email.isRead
 
         return (
             <div className="email-item-container">
-                <div className="list-item" >
+                <div className={`list-item ${isRead ? 'is-read' : ''}`} >
                     <ListControlsLeft />
 
                     <NavLink className="list-item-details-container" to={`${currLocation}/details/${this.props.email.id}`} props={this.props}>

@@ -21,6 +21,7 @@ var emails = [{
         isRead: false,
         isStar: false,
         date: Date.now(),
+        address: 'yossitheman@yossmail.com',
         status: 'archived' // will be: archived/sent/star
     },
     {
@@ -31,6 +32,7 @@ var emails = [{
         isRead: false,
         isStar: false,
         date: Date.now(),
+        address: 'savtathequeen@savta.com',
         status: null // will be: archived/sent/star
     }, {
         id: utilService.makeId(),
@@ -40,6 +42,7 @@ var emails = [{
         isRead: false,
         isStar: false,
         date: Date.now(),
+        address: 'dodales1234@doda44.com',
         status: null // will be: archived/sent/star
     },
     {
@@ -50,6 +53,7 @@ var emails = [{
         isRead: true,
         isStar: false,
         date: Date.now(),
+        address: 'moseslovesbieber@moshemoshe.com',
         status: 'archived' // will be: archived/sent/star
     },
     {
@@ -60,6 +64,7 @@ var emails = [{
         isRead: true,
         isStar: false,
         date: Date.now(),
+        address: 'bennyyeledra@benny1234.com',
         status: null // will be: archived/sent/star
     }, {
         id: utilService.makeId(),
@@ -69,6 +74,7 @@ var emails = [{
         isRead: false,
         isStar: false,
         date: Date.now(),
+        address: 'jhonnycashandmezuman1454@mailmail.com',
         status: null // will be: archived/sent/star
     },
     {
@@ -79,16 +85,18 @@ var emails = [{
         isRead: true,
         isStar: false,
         date: Date.now(),
+        address: 'lenoardoandchan@mail.com',
         status: null // will be: archived/sent/star
     },
     {
         id: utilService.makeId(),
-        name: 'Some name',
+        name: 'Ronen cohen',
         subject: 'heyyyy',
         body: 'heyy wassap?!',
         isRead: false,
         isStar: true,
         date: Date.now(),
+        address: 'ronencohentheman123@mail.com',
         status: null // will be: archived/sent/star
     }, {
         id: utilService.makeId(),
@@ -98,6 +106,7 @@ var emails = [{
         isRead: false,
         isStar: true,
         date: Date.now(),
+        address: 'missbook677@mail.com',
         status: 'archived' // will be: archived/sent/star
     }, {
         id: utilService.makeId(),
@@ -107,6 +116,7 @@ var emails = [{
         isRead: false,
         isStar: false,
         date: Date.now(),
+        address: 'steimatzkeystore@mail.com',
         status: 'sent' // will be: archived/sent/star
     }
 ]

@@ -45,8 +45,6 @@ export class MailPreviewList extends React.Component {
             mailService.getAllInboxEmails()
                 .then(emails => this.setState({ emails: emails, category: 'inbox' }))
         } 
-
-
     }
 
 
