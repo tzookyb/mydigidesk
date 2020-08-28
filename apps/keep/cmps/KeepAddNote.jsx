@@ -1,5 +1,4 @@
 import { keepService } from '../../../services/keepService.js'
-import { ColorPalette } from './note/ColorPalette.jsx'
 
 export class KeepAddNote extends React.Component {
     state = {

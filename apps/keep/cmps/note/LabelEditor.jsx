@@ -1,5 +1,5 @@
 import { keepService } from '../../../../services/keepService.js'
-import { Labels } from './Labels.jsx'
+import { Labels } from 'Labels.jsx'
 export class LabelEditor extends React.Component {
     state = {
         isShown: false,

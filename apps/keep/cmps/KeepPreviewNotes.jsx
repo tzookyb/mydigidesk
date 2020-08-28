@@ -1,6 +1,6 @@
-import { Title } from './note/Title.jsx'
-import { Content } from './note/Content.jsx';
-import { Controls } from './note/Controls.jsx';
+import { Title } from 'note/Title.jsx'
+import { Content } from 'note/Content.jsx';
+import { Controls } from 'note/Controls.jsx';
 
 export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, onNoteBgc, onNotePin, onNoteMail, onNoteLabel }) {
     const trashView = (currFilter === 'trash') ? true : false;
