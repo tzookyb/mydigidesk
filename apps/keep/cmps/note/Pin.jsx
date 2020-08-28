@@ -1,8 +1,9 @@
 export function Pin({ onNotePin, note }) {
 
-    const pin = note.isPinned ? 'unpin' : 'pin';
+    // const pin = note.isPinned ? <span class="material-icons">push_pin</span> : <span class="material-icons">push_pin</span>;
 
-    const output = <div className="note-pin" onClick={() => onNotePin(note)}>{pin}</div>;
-
-    return output;
+    return <span style={iconStyle} className="material-icons note-pin" onClick={() => onNotePin(note)}>push_pin</span>;
+}
+const iconStyle = {
+    fontSize: '30px'
 }

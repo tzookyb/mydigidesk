@@ -1,7 +1,9 @@
 import { keepService } from '../../../services/keepService.js'
-import { KeepSideBar } from '../cmps/KeepSideBar.jsx'
-import { KeepAddNote } from '../cmps/KeepAddNote.jsx';
-import { KeepPreviewNotes } from '../cmps/KeepPreviewNotes.jsx';
+import { KeepSideBar } from 'KeepSideBar.jsx'
+import { KeepAddNote } from 'KeepAddNote.jsx';
+import { KeepPreviewNotes } from 'KeepPreviewNotes.jsx';
+import { KeepNoteDetails } from 'KeepNoteDetails.jsx'
+import { EventBus } from '../../../services/event-bus-service.js'
 
 export class Keep extends React.Component {
 
@@ -9,6 +11,7 @@ export class Keep extends React.Component {
         notes: [],
         filterBy: '',
         labels: {},
+        displayNoteId: '',
     }
 
     componentDidMount() {
@@ -21,7 +24,7 @@ export class Keep extends React.Component {
         else this.routeUpdate();
     }
 
-    refresh() {
+    refresh = () => {
         this.getNotes();
         this.getLabels();
     }
@@ -69,6 +72,7 @@ export class Keep extends React.Component {
     }
 
     onNoteMail = (note) => {
+        EventBus.emit('notify', 'Note sent to mail!')
         console.log("Keep -> noteMail -> noteId", note)
     }
 
@@ -99,7 +103,8 @@ export class Keep extends React.Component {
             <section className="keep-container">
                 <KeepSideBar labels={this.state.labels} />
                 <div className="keep-main-area">
-                    <KeepAddNote />
+                    {(this.state.displayNoteId) ? <KeepNoteDetails note={this.getNote} /> : ''}
+                    < KeepAddNote refresh={this.refresh} />
                     {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
                     {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
                 </div>

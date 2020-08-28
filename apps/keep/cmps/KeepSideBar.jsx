@@ -18,8 +18,11 @@ export class KeepSideBar extends React.Component {
         let idx = 1;
         for (const label in this.state.labels) {
             labelLinks.push(
-                <NavLink key={idx++} to={`/keep/${label}`}>
-                    <p className="label-link">{label}<span className="label-count">{this.state.labels[label]}</span></p>
+                <NavLink className="label-link" key={idx++} to={`/keep/${label}`}>
+                    <p>{label}</p>
+                    <div>
+                        <span className="material-icons">label</span><span className="label-count">{this.state.labels[label]}</span>
+                    </div>
                 </NavLink >
             )
         }
@@ -30,17 +33,16 @@ export class KeepSideBar extends React.Component {
         const labelLinks = this.makeLabelLinks();
         return (
             <div className="keep-sidebar">
-                <NavLink to={'/keep/allnotes/'}>
-                    <p className="label-link">All Notes</p>
+
+                <NavLink className="label-link" to={'/keep/allnotes/'}>
+                    <p>All Notes</p>
                 </NavLink>
                 {labelLinks}
-                <NavLink to={'/keep/archive'}>
-                    <p className="label-link">Archive</p>
+                <NavLink className="label-link" to={'/keep/trash'}>
+                    <p>Trash</p><span className="material-icons">delete</span>
                 </NavLink>
-                <NavLink to={'/keep/trash'}>
-                    <p className="label-link">Trash</p>
-                </NavLink>
-            </div>
+
+            </div >
         )
     }
 }

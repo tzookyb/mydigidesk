@@ -7,6 +7,10 @@ export class ColorPalette extends React.Component {
         this.setState(prevState => ({ isShown: !prevState.isShown }));
     }
 
+    close = () => {
+        this.setState({ isShown: false })
+    }
+
     onChange = (color) => {
         this.setState({ isShown: false });
         this.props.onNoteBgc(this.props.note.id, color);
@@ -39,12 +43,13 @@ export class ColorPalette extends React.Component {
         })
 
         return (
-            <div>
-                <div className="note-btn note-bgc" onClick={this.onShowPalette}> Bgc</div >
-                {this.state.isShown && <div className="palette">
+            <React.Fragment>
+                <span className="material-icons note-btn note-bgc" onClick={this.onShowPalette}>palette</span>
+                {/* <div className="note-btn note-bgc" onClick={this.onShowPalette}><span class="material-icons">palette</span></div> */}
+                {this.state.isShown && <div className="palette" onMouseLeave={this.close}>
                     {colorsDivs}
                 </div>}
-            </div >
+            </React.Fragment>
         )
     }
 }
