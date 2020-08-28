@@ -1,11 +1,11 @@
 .keep-container {
     display: flex;
-    height: 100%;
 }
 
 .keep-main-area {
-    display: flex;
+    margin: auto;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: center; */
+    max-width: 1200px;
 }

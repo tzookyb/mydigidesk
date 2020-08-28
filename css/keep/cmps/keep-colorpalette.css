@@ -1,5 +1,6 @@
 .palette {
-    position: fixed;
+    position: absolute;
+    bottom:40px;
     z-index: 2;
     display: grid;
     background-color: white;

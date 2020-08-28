@@ -1,5 +1,6 @@
 .label-editor {
-    position: fixed;
+    position: absolute;
+    bottom:40px;
     background-color: white;
     z-index: 2;
     border-radius: 10px;
@@ -14,6 +15,8 @@
 
 .label {
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .label-input {

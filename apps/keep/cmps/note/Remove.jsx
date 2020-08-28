@@ -3,7 +3,7 @@
 
 export function Remove({ onNoteTrash, noteIsTrash, note }) {
 
-    const remove = noteIsTrash ? 'remove' : 'trash';
+    const remove = noteIsTrash ? <span class="material-icons">delete_forever</span> : <span class="material-icons">delete</span>;
 
     return <div className="note-btn note-trash" onClick={() => onNoteTrash(note)}>{remove}</div>
 }

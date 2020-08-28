@@ -12,7 +12,7 @@ export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, on
                     <div key={note.id} style={{ backgroundColor: note.backgroundColor }} className="note-card">
                         <div className="note-inner">
                             <Title title={note.content.title} />
-                            <Content content={note.content.text} />
+                            <Content note={note} />
                             <Controls note={note} trashView={trashView} onNoteTrash={onNoteTrash} onNotePin={onNotePin} onNoteBgc={onNoteBgc} onNoteMail={onNoteMail} onNoteLabel={onNoteLabel} />
                         </div>
                     </div >
