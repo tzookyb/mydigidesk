@@ -20,6 +20,8 @@ export class Keep extends React.Component {
 
 
     componentDidUpdate(prevProps) {
+        console.log(this.props.match.params)
+
         if (prevProps.location.pathname === this.props.location.pathname) return;
         else this.routeUpdate();
     }
@@ -44,6 +46,9 @@ export class Keep extends React.Component {
     }
 
     routeUpdate = () => {
+        console.log(this.state.notes)
+        console.log(this.props.match.params)
+        console.log(this.props.match.params.noteId)
         const filterBy = this.props.match.params.filter;
         this.setState({ filterBy }, this.getNotes);
     }
@@ -70,10 +75,9 @@ export class Keep extends React.Component {
         keepService.updateNote(note.id, 'isPinned', status)
             .then(this.refresh());
     }
-
+    
     onNoteMail = (note) => {
         EventBus.emit('notify', 'Note sent to mail!')
-        console.log("Keep -> noteMail -> noteId", note)
     }
 
     onNoteLabel = (note, label) => {

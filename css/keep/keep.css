@@ -1,5 +1,6 @@
 .keep-container {
     display: flex;
+    min-height: 100%;
 }
 
 .keep-main-area {

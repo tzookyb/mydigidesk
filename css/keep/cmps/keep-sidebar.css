@@ -1,15 +1,22 @@
 .keep-sidebar {
-    background-color: lightgray;
-    min-width: 150px;
-    padding: 0;
-    list-style: none;
+    background-color: #d6e0f0;
+    font-family: Roboto-medium;
+    height: 100vh;
+    min-width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid #FAFAFA;
 }
 
 .label-link:hover {
-background-color: rgb(230, 255, 87);
+    background-color: #E9EAED;
+    border-radius: 0em 2em 2em 0em;
 }
+
 .label-link {
-    padding: 10px;
+    padding: 0.55rem;
+    width: 90%;
     display: flex;
     justify-content: space-between;
 }

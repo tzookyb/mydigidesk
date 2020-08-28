@@ -14,16 +14,19 @@ export class App extends React.Component {
             <React.Fragment>
                 <Router>
                     <header className="main-header">
-                        <Notify />
+                        <div className="logo">Logo</div>
+                        <div>Search Component Here</div>
                         <NavBar />
                     </header>
                     <main>
 
                         <Switch>
                             <Route to component={Mail} path="/mail" />
-                            <Route to component={Keep} path="/keep/:filter" />
+                            <Route exact to component={Keep} path="/keep/:filter" />
+                            <Route exact to component={Keep} path="/keep/:filter/:noteId" />
                             <Route to component={Home} path="/" />
                         </Switch>
+                        <Notify />
                     </main>
                 </Router>
             </React.Fragment>

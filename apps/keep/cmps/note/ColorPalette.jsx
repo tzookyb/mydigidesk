@@ -45,7 +45,6 @@ export class ColorPalette extends React.Component {
         return (
             <React.Fragment>
                 <span className="material-icons note-btn note-bgc" onClick={this.onShowPalette}>palette</span>
-                {/* <div className="note-btn note-bgc" onClick={this.onShowPalette}><span class="material-icons">palette</span></div> */}
                 {this.state.isShown && <div className="palette" onMouseLeave={this.close}>
                     {colorsDivs}
                 </div>}

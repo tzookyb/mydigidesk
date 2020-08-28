@@ -4,14 +4,14 @@ export class Notify extends React.Component {
         isShown: false,
         notification: ''
     }
+    unsubscribe;
 
     componentDidMount() {
-        console.log('eventbus', this.state)
         EventBus.on('notify', (message) => this.showNotification(message))
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log('eventbus', this.state)
+    componentWillUnmount() {
+        this.unsubscribe()
     }
 
     showNotification = (message) => {
@@ -27,7 +27,7 @@ export class Notify extends React.Component {
         const notifyClass = (this.state.isShown) ? 'notify shown' : 'notify';
         return (
             <div className={notifyClass}>
-                <h1>{this.state.notification}</h1>
+                {this.state.notification}
             </div>
         )
     }

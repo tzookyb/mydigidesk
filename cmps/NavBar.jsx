@@ -1,10 +1,6 @@
 const { NavLink, withRouter } = ReactRouterDOM;
 
-
 class _NavBar extends React.Component {
-
-
-
 
     render() {
         return (
