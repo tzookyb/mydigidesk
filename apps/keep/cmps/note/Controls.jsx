@@ -1,9 +1,9 @@
-import { Pin } from './Pin.jsx'
-import { Remove } from './Remove.jsx';
-import { Restore } from './Restore.jsx';
-import { ColorPalette } from './ColorPalette.jsx';
-import { MailNote } from './MailNote.jsx';
-import { LabelEditor } from './LabelEditor.jsx';
+import { Pin } from 'Pin.jsx'
+import { Remove } from 'Remove.jsx';
+import { Restore } from 'Restore.jsx';
+import { ColorPalette } from 'ColorPalette.jsx';
+import { MailNote } from 'MailNote.jsx';
+import { LabelEditor } from 'LabelEditor.jsx';
 
 export function Controls({ note, trashView, onNoteTrash, onNotePin, onNoteBgc, onNoteLabel, onNoteMail }) {
 
