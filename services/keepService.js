@@ -9,6 +9,7 @@ export const keepService = {
     updateNote,
     getNoteById,
     getLabels,
+    updateWholeNote,
 }
 
 var keepNotes = [];
@@ -220,8 +221,16 @@ function _getVideoUrl(data) {
 
 function updateNote(noteId, key, data) {
     const idx = _getNoteIdx(noteId);
-    const note = getNoteById(noteId);
+    const note = _getNoteById(noteId);
     note[key] = data;
+    keepNotes.splice(idx, 1, note);
+    _saveNotes();
+    _mapLabels();
+    return Promise.resolve();
+}
+
+function updateWholeNote(note) {
+    const idx = _getNoteIdx(note.id);
     keepNotes.splice(idx, 1, note);
     _saveNotes();
     _mapLabels();
@@ -241,6 +250,9 @@ function searchNotes(string) {
     return Promise.resolve(notes);
 }
 
-function getNoteById(noteId) {
+function _getNoteById(noteId) {
     return keepNotes.find(note => note.id === noteId);
+}
+function getNoteById(noteId) {
+    return Promise.resolve(keepNotes.find(note => note.id === noteId));
 }

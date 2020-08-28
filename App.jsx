@@ -5,7 +5,7 @@ import { Mail } from 'apps/mail/pages/Mail.jsx'
 import { Keep } from 'apps/keep/cmps/KeepApp.jsx'
 import { Home } from 'pages/Home.jsx'
 import { NavBar } from 'cmps/NavBar.jsx'
-import {Notify} from 'cmps/Notify.jsx'
+import { Notify } from 'cmps/Notify.jsx'
 
 export class App extends React.Component {
 

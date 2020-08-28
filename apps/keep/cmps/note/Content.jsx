@@ -1,4 +1,4 @@
-export function Content({ note }) {
+export function Content({ note, edit, onInput }) {
     var content;
     switch (note.type) {
         case 'text':
@@ -12,6 +12,6 @@ export function Content({ note }) {
             break;
     }
 
-
-    return <div className="note-content">{content}</div>
+    return (edit) ? <div suppressContentEditableWarning={true} contentEditable={true} onInput={(ev) => onInput(ev)} className="note-content">{content}</div> :
+        <div className="note-content">{content}</div>;
 }

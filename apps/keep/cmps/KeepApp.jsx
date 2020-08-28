@@ -20,8 +20,6 @@ export class Keep extends React.Component {
 
 
     componentDidUpdate(prevProps) {
-        console.log(this.props.match.params)
-
         if (prevProps.location.pathname === this.props.location.pathname) return;
         else this.routeUpdate();
     }
@@ -46,11 +44,9 @@ export class Keep extends React.Component {
     }
 
     routeUpdate = () => {
-        console.log(this.state.notes)
-        console.log(this.props.match.params)
-        console.log(this.props.match.params.noteId)
         const filterBy = this.props.match.params.filter;
-        this.setState({ filterBy }, this.getNotes);
+        const displayNoteId = this.props.match.params.noteId;
+        this.setState({ filterBy, displayNoteId }, this.getNotes);
     }
 
     onNoteTrash = (note, restore = false) => {
@@ -75,7 +71,7 @@ export class Keep extends React.Component {
         keepService.updateNote(note.id, 'isPinned', status)
             .then(this.refresh());
     }
-    
+
     onNoteMail = (note) => {
         EventBus.emit('notify', 'Note sent to mail!')
     }
@@ -103,16 +99,17 @@ export class Keep extends React.Component {
             onNoteMail: this.onNoteMail,
         }
 
+        if (!this.state.notes) return <div>Loading notes...</div>
         return (
-            <section className="keep-container">
+            <section className="keep-container" >
                 <KeepSideBar labels={this.state.labels} />
                 <div className="keep-main-area">
-                    {(this.state.displayNoteId) ? <KeepNoteDetails note={this.getNote} /> : ''}
+                    {this.state.displayNoteId && <KeepNoteDetails refresh={this.refresh} currFilter={props.currFilter} noteId={this.state.displayNoteId} {...props} />}
                     < KeepAddNote refresh={this.refresh} />
                     {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
                     {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
                 </div>
-            </section>
+            </section >
         )
     }
 }

@@ -5,6 +5,7 @@
 @import 'keep/cmps/keep-controls.css';
 @import 'keep/cmps/keep-colorpalette.css';
 @import 'keep/cmps/keep-labeleditor.css';
+@import 'keep/cmps/keep-notedetails.css';
 @import 'mail/mail.css';
 @import 'mail/upper-control.css';
 @import 'mail/cmps/mail-details.css';
@@ -85,7 +86,6 @@ input:focus, textarea:focus, select:focus {
     border: 2px solid white;
     background-color: rgb(67, 64, 255);
     color: white;
-    font-size: 0.8rem;
     transform: translateY(100%);
     opacity: 0;
     transition: 0.5s;

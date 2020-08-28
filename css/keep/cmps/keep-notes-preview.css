@@ -41,9 +41,13 @@
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
 }
 
-.note-card:hover .note-controls>* {
+.note-card:hover .note-controls>*, .note-details:hover .note-controls>* {
     visibility: visible;
 }
+
+/* .note-details:hover .note-controls>* {
+    visibility: visible;
+} */
 
 .note-title {
     font-size: 1.2rem;
