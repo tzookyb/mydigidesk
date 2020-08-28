@@ -1,4 +1,5 @@
 import { keepService } from '../../../services/keepService.js'
+import { ColorPalette } from './note/ColorPalette.jsx'
 
 export class KeepAddNote extends React.Component {
     state = {
@@ -50,13 +51,21 @@ export class KeepAddNote extends React.Component {
             <div className="add-note">
                 <textarea className="add-note-input" onChange={(ev) => this.changeInput(ev.target.value)} value={this.state.input} placeholder={this.state.placeHolder} type="search" ></textarea>
                 <div className="add-note-icons">
-                    <button className="add-note-submit" onClick={this.saveNote}>submit</button>
-                    <div className="add-btn text" onClick={() => this.changeType('text')}>text</div>
-                    <div className="add-btn image" onClick={() => this.changeType('image')}>image</div>
-                    <div className="add-btn video" onClick={() => this.changeType('video')}>video</div>
-                    <div className="add-btn todo" onClick={() => this.changeType('todo')}> to-do list </div>
+                    <span style={submitStyle} className="material-icons add-btn submit" onClick={this.saveNote}>note_add</span>
+                    <span style={iconStyle} className="material-icons add-btn text" onClick={() => this.changeType('text')}>sticky_note_2</span>
+                    <span style={iconStyle} className="material-icons add-btn image" onClick={() => this.changeType('image')}>image</span>
+                    <span style={iconStyle} className="material-icons add-btn video" onClick={() => this.changeType('video')}>ondemand_video</span>
+                    <span style={iconStyle} className="material-icons add-btn todo" onClick={() => this.changeType('todo')}>check_box</span>
                 </div>
             </div>
         )
     }
+
+}
+const iconStyle = {
+    fontSize: '35px'
+}
+const submitStyle = {
+    fontSize: '35px',
+    color: '#2a9df4'
 }

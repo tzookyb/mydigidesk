@@ -8,6 +8,16 @@
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
 }
 
+.add-btn:hover {
+    transform: scale(1.2, 1.2);
+    transition: transform 0.3s;
+    color: rgb(88, 187, 49);
+}
+
+.add-btn {
+    cursor: pointer;
+}
+
 .add-note-icons {
     flex-grow: 1;
     display: flex;
@@ -23,6 +33,4 @@
     resize: none;
 }
 
-.add-note-input:focus {
-    /* position: absolute; */
-}
+.add-note-input:focus {}

@@ -48,7 +48,8 @@ export class LabelEditor extends React.Component {
 
         return (
             <React.Fragment >
-                <div className="note-btn note-label" onClick={this.onToggleLabelEditor}>Label</div>
+                <span className="material-icons note-btn note-label" onClick={this.onToggleLabelEditor}>label</span>
+                {/* <div className="note-btn note-label" onClick={this.onToggleLabelEditor}>Label</div> */}
                 {(this.state.isShown) &&
                     <div className="label-editor" onMouseLeave={this.close}>
                         <input className="label-input" value={this.state.input} placeholder="Enter new label" onKeyPress={(ev) => { this.saveLabel(ev) }} onChange={(ev) => this.changeInput(ev.target.value)} type="text" />
