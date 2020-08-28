@@ -9,13 +9,14 @@
 }
 
 .add-btn:hover {
-    transform: scale(1.2, 1.2);
-    transition: transform 0.3s;
+    transform: scale(1.1, 1.1);
+    /* transition: transform 0.2s; */
     color: rgb(88, 187, 49);
 }
 
 .add-btn {
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .add-note-icons {
