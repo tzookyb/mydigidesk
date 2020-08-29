@@ -10,7 +10,10 @@ export function Content({ note, edit = false, onInput }) {
         case 'video':
             if (edit) {
                 const width = parseInt((window.innerWidth) * 0.9);
+                console.log("Content -> width", width)
                 const height = parseInt((window.innerHeight - 64) * 0.75);
+                console.log("Content -> height", height)
+                
                 content = <iframe width={width} height={height} className="iframe" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" type="text/html" src={`https://www.youtube.com/embed/${note.content.url}?autoplay=1`}></iframe>;
             } else content = <iframe className="iframe" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" type="text/html" src={`https://www.youtube.com/embed/${note.content.url}?autoplay=0`}></iframe>;
             break;

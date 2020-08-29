@@ -46,7 +46,7 @@ class _KeepNoteDetails extends React.Component {
         var content;
         if (note.type === 'text') content = <Content onInput={this.onChangeText} edit={true} note={note} />
         else if (note.type === 'todo') content = <Todo note={note} />
-        else content = <Content note={note} />
+        else content = <Content edit={true} note={note} />
 
         return (
             <div className="detail-container" onClick={() => this.props.history.goBack()}>
