@@ -3,6 +3,7 @@ import { MailPreviewList } from '../cmps/MailPreviewList.jsx'
 import { MailSideBar } from '../cmps/MailSideBar.jsx'
 import { MainControlBar } from '../cmps/MainControlBar.jsx'
 import { MailDetails } from '../cmps/MailDetails.jsx'
+import { Compose } from '../cmps/Compose.jsx'
 const { Route, Switch } = ReactRouterDOM;
 
 
@@ -13,7 +14,7 @@ export class Mail extends React.Component {
     componentDidMount() {
         this.props.updateCurrApp('mail')
     }
-    
+
 
     render() {
 
@@ -21,7 +22,7 @@ export class Mail extends React.Component {
             <section className="main-email-section">
                 <MailSideBar className="route-side-bar-container" />
                 <section className="main-body-section">
-                    <MainControlBar className="route-filter-container" />
+                    {/* <MainControlBar className="route-filter-container" /> */}
 
                     <Switch>
                         <Route component={MailDetails} path="/mail/:category?/details/:mailId" />
@@ -33,6 +34,9 @@ export class Mail extends React.Component {
                         <Route component={MailPreviewList} path="/mail" />
 
                     </Switch>
+                    
+                    <Route className="compose-container" component={Compose} path="/mail/:category?/compose" />
+
                 </section>
 
             </section>
@@ -41,6 +45,6 @@ export class Mail extends React.Component {
 }
 
 
-// under the routes, we'll insert the mail details cmp
+// fix routing for compose
 
 {/* <Route component={MailDetails} path="/mail/:category?/details/:mailId?" /> */ }

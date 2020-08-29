@@ -1,0 +1,47 @@
+.compose-inner-container{
+    width: 40rem;
+    height: 60vh;
+    position: fixed;
+    z-index: 12;
+    right: 2%;
+    bottom: 0;
+    background-color: #fafafa;
+
+    display: flex;
+    flex-direction: column;
+    border-radius:  0.35em;
+    box-shadow: -3px 5px 30px -8px rgba(0, 0, 0, 0.75);
+
+
+}
+
+.compose-field {
+    border-bottom: 1px solid rgb(208, 208, 208);
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    padding: 0.8rem 1rem;
+    border: none;
+}
+
+.compose-upper-controls{
+    display: flex;
+    justify-content: space-between;
+    height: 2.5rem;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    border-radius: 0.35em 0.35em 0em 0em;
+    font-size: 0.8em;
+    background-color: #404040;
+}
+
+.send-btn{
+    height: 7%;
+    width: 96%;
+    align-self: center;
+    margin: 2% 0;
+
+}
