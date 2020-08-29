@@ -26,20 +26,29 @@ function _createDefaultNotes() {
     keepNotes = [{
         id: utilService.makeId(),
         type: 'video',
-        content: { title: 'Get a haircut', text: '', url: 'h32y6smVwjs' },
+        content: { title: 'Before haircut, watch this', text: '', url: 'h32y6smVwjs' },
         isPinned: true,
         isTrash: false,
-        backgroundColor: '#ffffff',
-        labels: [],
+        backgroundColor: '#fbbc04',
+        labels: ['Fun', 'Videos I like'],
+    },
+    {
+        id: utilService.makeId(),
+        type: 'text',
+        content: { title: 'ATM password', url: '', text: 'The ATM password is 1278' },
+        isPinned: false,
+        isTrash: false,
+        backgroundColor: '#ccff90',
+        labels: ['Personal'],
     },
     {
         id: utilService.makeId(),
         type: 'video',
-        content: { title: 'Memorize this song:', text: '', url: 'https://www.youtube.com/watch?v=WqSZAExM828' },
+        content: { title: 'Memorize this song:', text: '', url: 'WqSZAExM828' },
         isPinned: false,
         isTrash: false,
-        backgroundColor: '#ffffff',
-        labels: [],
+        backgroundColor: '#E2D7AE',
+        labels: ['Fun'],
     },
     {
         id: utilService.makeId(),
@@ -52,8 +61,17 @@ function _createDefaultNotes() {
     },
     {
         id: utilService.makeId(),
+        type: 'image',
+        content: { title: 'What Jake thinks about Digidesk', url: 'https://media.giphy.com/media/B1a8Ng70ynoXK/giphy.gif', text: '' },
+        isPinned: false,
+        isTrash: false,
+        backgroundColor: '#fdcfe8',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
         type: 'text',
-        content: { title: 'bank password', url: '', text: 'password is 56347' },
+        content: { title: 'Bank password', url: '', text: 'password is 56347' },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#a7ffeb',
@@ -64,16 +82,16 @@ function _createDefaultNotes() {
         type: 'text',
         content: {
             title: 'Haiku I Wrote', url: '', text: `An old silent pond..
-        A frog jumps into the pond,
-            splash! Silence again.
-        
-        Autumn moonlight-
-            a worm digs silently
-        into the chestnut.
-        
-        In the twilight rain
-        these brilliant- hued hibiscus -
-        A lovely sunset.` },
+            A frog jumps into the pond,
+                splash! Silence again.
+
+            Autumn moonlight-
+                a worm digs silently
+            into the chestnut.
+
+            In the twilight rain
+            these brilliant- hued hibiscus -
+            A lovely sunset.` },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#f28b82',
@@ -83,21 +101,12 @@ function _createDefaultNotes() {
         id: utilService.makeId(),
         type: 'text',
         content: {
-            title: 'Pancake Recipe', url: '', text: '1 eggs\n1.25 cup of flour'
+            title: 'Pancake Recipe', url: '', text: '1Kitchen, 2 eggs\n1.25 cup of flour'
         },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#fbbc04',
-        labels: ['Work', 'Personal'],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: { title: 'ATM password', url: '', text: 'The ATM password is 1278' },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#ccff90',
-        labels: [],
+        labels: ['Cooking'],
     },
     {
         id: utilService.makeId(),
@@ -105,8 +114,17 @@ function _createDefaultNotes() {
         content: { title: 'You should eat your veggies!', text: '', url: 'https://media.giphy.com/media/54Y38YdCPe58XA0FpJ/giphy.gif' },
         isPinned: true,
         isTrash: false,
-        backgroundColor: '#ccff90',
-        labels: [],
+        backgroundColor: '#f28b82',
+        labels: ['Fun'],
+    },
+    {
+        id: utilService.makeId(),
+        type: 'image',
+        content: { title: 'No need for you!', text: '', url: 'https://media.giphy.com/media/15aGGXfSlat2dP6ohs/giphy.gif' },
+        isPinned: false,
+        isTrash: true,
+        backgroundColor: '#f28b82',
+        labels: ['Fun'],
     }
     ]
 }

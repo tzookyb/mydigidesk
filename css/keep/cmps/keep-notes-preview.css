@@ -79,3 +79,12 @@
         grid-template-columns: repeat(2, minmax(150px, 400px));
     }
 }
+
+@media (max-width: 460px) {
+    .pinned-notes, .unpinned-notes {
+        grid-template-columns: minmax(150px, 400px);
+    }
+    .keep-container{
+        display: block;
+    }
+}
