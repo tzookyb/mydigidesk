@@ -54,6 +54,7 @@
     box-sizing: border-box;
     margin: 0;
     font-family: Roboto-regular;
+    outline: none;
 }
 
 @import 'mail/mail.css';
@@ -74,10 +75,6 @@ a, a:visited, a:hover, a:active {
 }
 
 .active {}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-}
 
 .notify {
     position: fixed;
