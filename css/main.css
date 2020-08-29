@@ -12,6 +12,7 @@
 @import 'mail/mail.css';
 @import 'mail/upper-control.css';
 @import 'mail/cmps/mail-details.css';
+@import 'mail/cmps/compose.css';
 @font-face {
     font-family: Roboto-light;
     src: url(../assets/fonts/Roboto/Roboto-Light.ttf);

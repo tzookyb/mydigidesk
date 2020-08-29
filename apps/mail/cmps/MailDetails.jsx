@@ -1,3 +1,4 @@
+const { NavLink } = ReactRouterDOM
 import { mailService } from '../../../services/mailService.js'
 
 export class MailDetails extends React.Component {
@@ -20,14 +21,13 @@ export class MailDetails extends React.Component {
 
         if (!this.state.currEmail) return <h4>Loading...</h4>
         const currEmail = this.state.currEmail
-        if (!currEmail.isRead) mailService.markRead(currEmail.id) // here it sets the model without the service! fix this
+        if (!currEmail.isRead) mailService.markRead(currEmail.id) 
 
+        console.log(this.props);
+        
         return (
             <div className="mail-details-container">
-
-
-                {/* <div className="mail-details-body-continaer"> */}
-                <h1 className="mail-details-header">{currEmail.subject}</h1>
+                <h1 className="mail-details-header"><span className="material-icons back-btn">keyboard_backspace</span>{currEmail.subject}</h1>
                 <div className="mail-details-subheader">
                     <div className="mail-details-icon"></div>
                     <h4 className="mail-details-name">{currEmail.name} <span className="mail-details-address">{`<${currEmail.address}>`}</span></h4>
@@ -36,12 +36,6 @@ export class MailDetails extends React.Component {
                     </div>
                 </div>
                 <p className="mail-details-body">{currEmail.body}</p>
-                {/* </div> */}
-
-
-
-
-
             </div>
         )
     }

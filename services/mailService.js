@@ -10,6 +10,7 @@ export const mailService = {
     getAllSentEmails,
     setStar,
     setRemove,
+    sendEmail,
     setArchive
 }
 
@@ -331,6 +332,34 @@ function markRead(id) {
     // if (!currEmail.isRead) currEmail.isRead = true    
     currEmail.isRead = !currEmail.isRead
 }
+
+function sendEmail(email){
+    let emailToPush = {
+        id: utilService.makeId(),
+        name: 'Username',
+        subject: email['email-subject'],
+        body: email['email-body'],
+        isRead: true,
+        isStar: false,
+        date: Date.now,
+        address: email['email-address'],
+        status: 'sent'
+    }
+
+    emails.unshift(emailToPush)
+}
+
+// var emails = [{
+//             id: utilService.makeId(),
+//             name: 'Yossi',
+//             subject: 'hello',
+//             body: 'how are you?? I missed you!',
+//             isRead: false,
+//             isStar: false,
+//             date: Date.now(),
+//             address: 'yossitheman@yossmail.com',
+//             status: 'archived' // will be: archived/sent/star
+//         },
 
 function getAllEmails() {
     return Promise.resolve(emails)
