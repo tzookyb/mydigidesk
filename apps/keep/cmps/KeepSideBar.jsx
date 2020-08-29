@@ -21,7 +21,7 @@ export class KeepSideBar extends React.Component {
                 <NavLink className="label-link" key={idx++} to={`/keep/${label}`}>
                     <p>{label}</p>
                     <div>
-                        <span className="material-icons">label</span><span className="label-count">{this.state.labels[label]}</span>
+                        <span className="material-icons label-icon">label</span><span className="label-count">{this.state.labels[label]}</span>
                     </div>
                 </NavLink >
             )
@@ -39,7 +39,7 @@ export class KeepSideBar extends React.Component {
                 </NavLink>
                 {labelLinks}
                 <NavLink className="label-link" to={'/keep/trash'}>
-                    <p>Trash</p><span className="material-icons">delete</span>
+                    <p>Trash</p><span className="material-icons trash-icon">delete</span>
                 </NavLink>
 
             </div >

@@ -10,8 +10,7 @@
 
 .add-btn:hover {
     transform: scale(1.1, 1.1);
-    /* transition: transform 0.2s; */
-    color: rgb(88, 187, 49);
+    color: #8d93ab;
 }
 
 .add-btn {
@@ -34,4 +33,10 @@
     resize: none;
 }
 
-.add-note-input:focus {}
+.video:hover {
+    color: rgb(255, 0, 0);
+}
+
+.submit {
+    margin-right: 20px;
+}

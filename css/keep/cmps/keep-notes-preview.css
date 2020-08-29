@@ -45,9 +45,10 @@
     visibility: visible;
 }
 
-/* .note-details:hover .note-controls>* {
-    visibility: visible;
-} */
+.note-btn:hover {
+    transform: scale(1.1, 1.1);
+    color: #8d93ab;
+}
 
 .note-title {
     font-size: 1.2rem;

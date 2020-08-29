@@ -11,19 +11,31 @@
     border-right: 1px solid #FAFAFA;
 }
 
-.label-link:hover {
-    background-color: #E9EAED;
-    border-radius: 0em 2em 2em 0em;
+.label-link:first-child {
+    margin-top: 1rem;
 }
 
 .label-link {
     padding: 0.55rem;
+    height: 3rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
+.label-link:hover {
+    background-color: #E9EAED;
+    border-radius: 0em 2em 2em 0em;
+}
+
 .label-count {
     color: rgb(151, 151, 151);
     font-size: small;
+}
+
+.label-icon {
+    color: #8d93ab;
+}
+.trash-icon {
+    color: #393b44;
 }
