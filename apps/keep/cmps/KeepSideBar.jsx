@@ -1,7 +1,9 @@
+import { EventBus } from '../../../services/event-bus-service.js'
 const { NavLink } = ReactRouterDOM;
 export class KeepSideBar extends React.Component {
     state = {
         labels: {},
+        show: true,
     }
 
     componentDidMount() {
@@ -11,6 +13,9 @@ export class KeepSideBar extends React.Component {
     componentDidUpdate(prevProps) {
         if (prevProps.labels === this.props.labels) return;
         else this.setState({ labels: this.props.labels })
+        EventBus.on('toggle-sidebar',
+            this.setState(prevState => ({ show: !prevState.show }))
+        )
     }
 
     makeLabelLinks = () => {
@@ -32,13 +37,13 @@ export class KeepSideBar extends React.Component {
     render() {
         const labelLinks = this.makeLabelLinks();
         return (
-            <div className="keep-sidebar">
+            <div className={(this.state.show) ? "keep-sidebar shown" : "keep-sidebar"}>
 
                 <NavLink className="label-link" to={'/keep/allnotes/'}>
                     <p>All Notes</p>
                 </NavLink>
                 {labelLinks}
-                <NavLink className="label-link" to={'/keep/trash'}>
+                <NavLink className="label-link" to={'/keep/trash'} >
                     <p>Trash</p><span className="material-icons trash-icon">delete</span>
                 </NavLink>
 

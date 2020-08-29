@@ -6,14 +6,16 @@ import { Keep } from 'apps/keep/cmps/KeepApp.jsx'
 import { Home } from 'pages/Home.jsx'
 import { NavBar } from 'cmps/NavBar.jsx'
 import { Notify } from 'cmps/Notify.jsx'
+import { MenuBtn } from 'cmps/MenuBtn.jsx'
 
 export class App extends React.Component {
-
+  
     render() {
         return (
             <React.Fragment>
                 <Router>
                     <header className="main-header">
+                        <MenuBtn />
                         <img className="logo" src="assets/favicon.png" alt="" />
                         <div className="logo-text">igidesk</div>
                         <div className="search">Search Component Here</div>
