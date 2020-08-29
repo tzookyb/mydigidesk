@@ -30,7 +30,6 @@ export class Keep extends React.Component {
         this.unsubscribe();
     }
 
-
     refresh = () => {
         this.getNotes();
         this.getLabels();
@@ -56,8 +55,8 @@ export class Keep extends React.Component {
         this.setState({ filterBy, displayNoteId }, this.getNotes);
     }
 
-    onNoteTrash = (note, restore = false) => {
-        if (note.isTrash && !restore) {
+    onNoteTrash = (note, isRestore = false) => {
+        if (note.isTrash && !isRestore) {
             keepService.removeNote(note.id)
                 .then(this.refresh());
             EventBus.emit('notify', 'Note deleted for good...');

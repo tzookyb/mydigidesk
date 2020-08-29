@@ -16,8 +16,8 @@ class _NavBar extends React.Component {
         this.setState(prevState => ({ isShown: !prevState.isShown }))
     }
     closeMenu = () => {
-        console.log('hi')
-        this.setState({ isShown: false })
+        EventBus.emit('burgerToggle', '');
+        this.setState({ isShown: false });
     }
 
     render() {
