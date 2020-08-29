@@ -12,15 +12,14 @@
     box-shadow: -3px 5px 30px -8px rgba(0, 0, 0, 0.75);
 }
 
-.compose-field {
-    border-bottom: 1px solid rgb(208, 208, 208);
-}
 
-.compose-textarea {
+.compose-inner-container > textarea {
     resize: none;
     overflow: hidden;
     padding: 0.8rem 1rem;
     border: none;
+    border-bottom: 1px solid rgb(208, 208, 208);
+
 }
 
 .compose-upper-controls {

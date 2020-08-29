@@ -40,7 +40,6 @@ export class Compose extends React.Component {
                     <textarea onChange={this.onInputChange} name="email-address" className="compose-field email-address" cols="60" rows="1" placeholder="to"></textarea>
                     <textarea onChange={this.onInputChange} name="email-subject" className="compose-field email-subject" cols="60" rows="1" placeholder="subject"></textarea>
                     <textarea onChange={this.onInputChange} name="email-body" className="compose-field email-body" cols="60" rows="50" placeholder=""></textarea>
-
                     <button onClick={this.onSendEmail} className="send-btn">send</button>
                 </div>
             </div>
