@@ -1,4 +1,5 @@
 @import 'home.css';
+@import 'header.css';
 @import 'keep/keep.css';
 @import 'keep/cmps/keep-addnote.css';
 @import 'keep/cmps/keep-notes-preview.css';
@@ -42,6 +43,13 @@
     src: url(../assets/fonts/MaterialIcons-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Sacramento';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/Sacramento-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -51,18 +59,6 @@
 @import 'mail/mail.css';
 body {
     background-color: #f1f3f8;
-}
-
-.main-header {
-    position: fixed;
-    top:0;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #d6e0f0;
-    height: 4rem;
-    width: 100%;
 }
 
 main {

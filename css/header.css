@@ -1,0 +1,30 @@
+.main-header {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d6e0f0;
+    height: 4rem;
+    width: 100%;
+}
+
+.logo {
+    height: 100%;
+    width: 64px;
+}
+
+.logo-text {
+    position: absolute;
+    font-style: italic;
+    font-family: Sacramento;
+    font-size: 2rem;
+    bottom: 1px;
+    left: 50px;
+    color: rgb(0, 166, 156)
+}
+
+.search {
+    margin-left: 70px;
+}

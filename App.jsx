@@ -14,8 +14,9 @@ export class App extends React.Component {
             <React.Fragment>
                 <Router>
                     <header className="main-header">
-                        <div className="logo">Logo</div>
-                        <div>Search Component Here</div>
+                        <img className="logo" src="assets/favicon.png" alt="" />
+                        <div className="logo-text">igidesk</div>
+                        <div className="search">Search Component Here</div>
                         <NavBar />
                     </header>
                     <main>
