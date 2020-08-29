@@ -31,11 +31,10 @@ class _KeepAddNote extends React.Component {
     }
 
     createNewTextNote = () => {
-        console.log(this.state.type);
-        if (this.state.type !== 'text') return;
+        if (this.state.type !== 'text' && this.state.type !== 'todo') return;
         const filter = this.props.currFilter;
         const note = {
-            type: 'text',
+            type: this.state.type,
             content: 'your note content...',
             title: 'your note title...',
             isPinned: false,
@@ -70,7 +69,7 @@ class _KeepAddNote extends React.Component {
             <div className="add-note">
                 <textarea className="add-note-input" onChange={(ev) => this.changeInput(ev.target.value)} onClick={this.createNewTextNote} value={this.state.input} placeholder={this.state.placeHolder} type="search" ></textarea>
                 <div className="add-note-icons">
-                    {(this.state.type !== 'text') && <span style={submitStyle} className="material-icons add-btn submit" onClick={this.saveNote}>note_add</span>}
+                    {(this.state.type !== 'text' && this.state.type !== 'todo') && <span style={submitStyle} className="material-icons add-btn submit" onClick={this.saveNote}>note_add</span>}
                     <span style={iconStyle} className="material-icons add-btn text" onClick={() => this.changeType('text')}>sticky_note_2</span>
                     <span style={iconStyle} className="material-icons add-btn image" onClick={() => this.changeType('image')}>image</span>
                     <span style={iconStyle} className="material-icons add-btn video" onClick={() => this.changeType('video')}>ondemand_video</span>

@@ -214,6 +214,9 @@ function createNote(data) {
         case 'video':
             content = { title: '', url: _getVideoUrl(data.content), text: '' }
             break;
+        case 'todo':
+            content = { title: '', url: '', text: '', list: [] }
+            break;
     }
 
     const note = {

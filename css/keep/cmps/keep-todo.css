@@ -1,0 +1,19 @@
+.todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {}
+
+.done {
+    text-decoration: line-through;
+}
+
+.todo-input {
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgb(155, 155, 155);
+    height: 1rem;
+}
