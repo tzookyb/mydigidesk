@@ -11,22 +11,14 @@ import { MenuBtn } from 'cmps/MenuBtn.jsx'
 
 export class App extends React.Component {
 
-
     state = {
         currApp: null
     }
 
     updateCurrApp = (currApp) => {
         this.setState({ currApp })
-        console.log('works')
-        
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(this.state.currApp)
-        
-    }
-  
     render() {
         return (
             <React.Fragment>
@@ -41,9 +33,9 @@ export class App extends React.Component {
                     <main>
 
                         <Switch>
-                            <Route path="/mail" render={()=> <Mail updateCurrApp={this.updateCurrApp} />} />
-                            <Route exact to component={Keep} path="/keep/:filter" />
-                            <Route exact to component={Keep} path="/keep/:filter/:noteId" />
+                            <Route path="/mail" render={() => <Mail updateCurrApp={this.updateCurrApp} />} />
+                            <Route exact path="/keep/:filter" render={(props) => <Keep updateCurrApp={this.updateCurrApp} {...props} />} />
+                            <Route exact path="/keep/:filter/:noteId" render={(props) => <Keep updateCurrApp={this.updateCurrApp} {...props} />} />
                             <Route to component={Home} path="/" />
                         </Switch>
                         <Notify />
@@ -53,7 +45,5 @@ export class App extends React.Component {
         )
     }
 }
-{/* <Route to component={Mail} path="/mail" /> */}
-
-
-{/* <Route to component={Mail} updateCurrApp={() => this.updateCurrApp()} path="/mail" /> */}
+{/* <Route exact to component={Keep} path="/keep/:filter" />
+<Route exact to component={Keep} path="/keep/:filter/:noteId" /> */}

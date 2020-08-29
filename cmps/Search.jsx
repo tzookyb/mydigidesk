@@ -12,7 +12,7 @@ export class Search extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.currApp !== prevProps.currApp) { 
+        if (this.props.currApp !== prevProps.currApp) {
             this.setState({ currApp: this.props.currApp })
         }
     }
@@ -29,7 +29,7 @@ export class Search extends React.Component {
 
             <div className="search-bar-container">
 
-                <input onInput={() => { this.onStartType(event) }} className="search-bar" type="search" placeholder="search" />
+                <input onInput={() => { this.onStartType(event) }} className="search-bar" type="search" placeholder={`Search ${this.state.currApp}...`} />
 
             </div>
         )

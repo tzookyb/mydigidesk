@@ -1,6 +1,6 @@
 .detail-container {
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     height: 100%;
     width: 100%;
     top: 0;
@@ -20,7 +20,7 @@
     min-width: 330px;
     max-width: 80vw;
     min-height: 300px;
-    z-index: 5;
+    z-index: 11;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);

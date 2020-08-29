@@ -26,7 +26,7 @@ function _createDefaultNotes() {
     keepNotes = [{
         id: utilService.makeId(),
         type: 'video',
-        content: { title: 'Get a haircut', url: 'h32y6smVwjs' },
+        content: { title: 'Get a haircut', text: '', url: 'h32y6smVwjs' },
         isPinned: true,
         isTrash: false,
         backgroundColor: '#ffffff',
@@ -34,8 +34,17 @@ function _createDefaultNotes() {
     },
     {
         id: utilService.makeId(),
+        type: 'video',
+        content: { title: 'Memorize this song:', text: '', url: 'https://www.youtube.com/watch?v=WqSZAExM828' },
+        isPinned: false,
+        isTrash: false,
+        backgroundColor: '#ffffff',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
         type: 'image',
-        content: { title: 'Ham Po', url: 'https://media.giphy.com/media/l09ziOJeVS7SiIu05t/giphy.gif' },
+        content: { title: 'Ham Po', text: '', url: 'https://media.giphy.com/media/l09ziOJeVS7SiIu05t/giphy.gif' },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#ffffff',
@@ -44,17 +53,17 @@ function _createDefaultNotes() {
     {
         id: utilService.makeId(),
         type: 'text',
-        content: { title: 'bank password', text: 'The bank password is 56347' },
+        content: { title: 'bank password', url: '', text: 'password is 56347' },
         isPinned: false,
         isTrash: false,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#a7ffeb',
         labels: [],
     },
     {
         id: utilService.makeId(),
         type: 'text',
         content: {
-            title: 'Haiku I Wrote', text: `An old silent pond..
+            title: 'Haiku I Wrote', url: '', text: `An old silent pond..
         A frog jumps into the pond,
             splash! Silence again.
         
@@ -73,7 +82,9 @@ function _createDefaultNotes() {
     {
         id: utilService.makeId(),
         type: 'text',
-        content: { title: 'ATM password', text: 'The ATM password is 1278' },
+        content: {
+            title: 'Pancake Recipe', url: '', text: '1 eggs\n1.25 cup of flour'
+        },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#fbbc04',
@@ -82,16 +93,7 @@ function _createDefaultNotes() {
     {
         id: utilService.makeId(),
         type: 'text',
-        content: { title: 'ATM password', text: 'The ATM password is 1278' },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#fff475',
-        labels: ['Personal'],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: { title: 'ATM password', text: 'The ATM password is 1278' },
+        content: { title: 'ATM password', url: '', text: 'The ATM password is 1278' },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#ccff90',
@@ -100,21 +102,13 @@ function _createDefaultNotes() {
     {
         id: utilService.makeId(),
         type: 'image',
-        content: { title: 'חשוב לאכול ירקות', url: 'https://media.giphy.com/media/54Y38YdCPe58XA0FpJ/giphy.gif' },
-        isPinned: false,
+        content: { title: 'You should eat your veggies!', text: '', url: 'https://media.giphy.com/media/54Y38YdCPe58XA0FpJ/giphy.gif' },
+        isPinned: true,
         isTrash: false,
         backgroundColor: '#ccff90',
         labels: [],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: { title: 'ATM password', text: 'The ATM password is 1278' },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#a7ffeb',
-        labels: [],
-    }]
+    }
+    ]
 }
 
 function _saveNotes() {
@@ -184,13 +178,13 @@ function createNote(data) {
     var content;
     switch (data.type) {
         case 'text':
-            content = { title: data.title||'', text: data.content }
+            content = { title: data.title || '', text: data.content, url: '' }
             break;
         case 'image':
-            content = { title: '', url: data.content }
+            content = { title: '', url: data.content, text: '', }
             break;
         case 'video':
-            content = { title: '', url: _getVideoUrl(data.content) }
+            content = { title: '', url: _getVideoUrl(data.content), text: '' }
             break;
     }
 
@@ -203,10 +197,9 @@ function createNote(data) {
         backgroundColor: data.backgroundColor,
         labels: data.labels,
     }
-    keepNotes.push(note);
+    keepNotes.unshift(note);
     _saveNotes();
     _mapLabels();
-    console.log(note)
     return Promise.resolve(note.id);
 }
 
@@ -246,7 +239,9 @@ function removeNote(noteId) {
 }
 
 function searchNotes(string) {
-    const notes = keepNotes.filter(note => note.content.text.contains(string) || note.content.title.contains(string));
+    const notes = keepNotes.filter(note => {
+        return note.content.title.toLowerCase().includes(string);
+    })
     return Promise.resolve(notes);
 }
 
