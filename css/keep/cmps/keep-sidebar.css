@@ -18,10 +18,11 @@
 
 .label-link {
     padding: 0.55rem;
-    height: 3rem;
-    width: 100%;
+    height: 2.5rem;
+    width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .label-link:hover {
