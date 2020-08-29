@@ -29,6 +29,10 @@
     margin-left: 70px;
 }
 
+nav {
+    transition: 0.3s;
+}
+
 .navbar-icon:hover {
     transform: scale(1.1, 1.1);
     color: #8d93ab;
@@ -41,18 +45,33 @@
 }
 
 .menu-btn {
-    display: hidden;
+    margin-left: 10px;
+    display: none;
     position: absolute;
     cursor: pointer;
-    box-shadow: ;
+    text-shadow: 0px 0px 2px grey;
 }
 
 @media (max-width: 700px) {
-    
+    .menu-btn {
+        display: block;
+    }
     .logo {
         margin-left: 50px;
     }
     .logo-text {
         left: 100px;
+    }
+}
+
+@media (max-width: 700px) {
+    nav {
+        position: absolute;
+        z-index: 3;
+        padding: 10px 10px;
+        top: 0px;
+        left: 55px;
+        background-color: #d6e0f0;
+        transform: translateX(-130%)
     }
 }

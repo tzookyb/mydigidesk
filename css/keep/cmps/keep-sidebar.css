@@ -1,5 +1,6 @@
 .keep-sidebar {
     position: fixed;
+    z-index: 3;
     top: 4rem;
     height: calc(100vh - 4rem);
     background-color: #ffffff;
@@ -45,7 +46,7 @@
 
 @media (max-width: 700px) {
     .keep-sidebar {
-        min-width: 3rem;
+        min-width: 11rem;
         transform: translateX(-100%)
     }
     .shown {

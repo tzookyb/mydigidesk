@@ -1,21 +1,28 @@
 import { EventBus } from '../../../services/event-bus-service.js'
 const { NavLink } = ReactRouterDOM;
+
 export class KeepSideBar extends React.Component {
     state = {
         labels: {},
-        show: true,
+        isShown: false,
     }
-
+    unsubscribe;
     componentDidMount() {
+        this.unsubscribe = EventBus.on('menuToggle', this.toggleMenu)
         this.setState({ labels: this.props.labels });
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.labels === this.props.labels) return;
         else this.setState({ labels: this.props.labels })
-        EventBus.on('toggle-sidebar',
-            this.setState(prevState => ({ show: !prevState.show }))
-        )
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    toggleMenu = () => {
+        this.setState((prevState) => ({ isShown: !prevState.isShown }));
     }
 
     makeLabelLinks = () => {
@@ -37,7 +44,7 @@ export class KeepSideBar extends React.Component {
     render() {
         const labelLinks = this.makeLabelLinks();
         return (
-            <div className={(this.state.show) ? "keep-sidebar shown" : "keep-sidebar"}>
+            <div className={(this.state.isShown) ? "keep-sidebar shown" : "keep-sidebar"}>
 
                 <NavLink className="label-link" to={'/keep/allnotes/'}>
                     <p>All Notes</p>

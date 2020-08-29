@@ -13,7 +13,7 @@ export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, on
                 return (
                     <div key={note.id} style={{ backgroundColor: note.backgroundColor }} className="note-card">
                         <div className="note-inner">
-                            <Link key={note.id} to={`/keep/${currFilter}/${note.id}`}>
+                            <Link onClick={(ev) => ev.stopPropagation()} key={note.id} to={`/keep/${currFilter}/${note.id}`}>
                                 <Title title={note.content.title} />
                                 <Content note={note} />
                             </Link>

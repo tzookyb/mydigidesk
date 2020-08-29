@@ -14,15 +14,21 @@ export class Keep extends React.Component {
         displayNoteId: '',
     }
 
+    unsubscribe;
     componentDidMount() {
+        this.props.updateCurrApp('keep')
+        this.unsubscribe = EventBus.on('search', (str) => this.onNoteSearch(str));
         this.setState({ filterBy: this.props.match.params.filter }, this.refresh);
     }
-
 
     componentDidUpdate(prevProps) {
         if (prevProps.location.pathname === this.props.location.pathname) return;
         else this.routeUpdate();
     }
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
 
     refresh = () => {
         this.getNotes();
@@ -85,6 +91,12 @@ export class Keep extends React.Component {
         }
         keepService.updateNote(note.id, 'labels', note.labels)
             .then(this.refresh())
+    }
+
+    onNoteSearch = (str) => {
+        if (!str) str = '';
+        keepService.searchNotes(str.toLowerCase())
+            .then(notes => this.setState({ notes }))
     }
 
     render() {
