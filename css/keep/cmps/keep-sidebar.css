@@ -46,7 +46,7 @@
 
 @media (max-width: 700px) {
     .keep-sidebar {
-        min-width: 11rem;
+        min-width: 220px;
         transform: translateX(-100%)
     }
     .shown {

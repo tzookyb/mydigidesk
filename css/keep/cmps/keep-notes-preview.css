@@ -20,6 +20,11 @@
     border-top: 1px solid rgba(150, 150, 150, 0.5);
 }
 
+.no-notes {
+    font-size: 20px;
+    text-align: center;
+}
+
 .note-card {
     position: relative;
     width: 100%;
@@ -62,6 +67,7 @@
     height: 100%;
     width: 100%;
     padding: 5px;
+    white-space: pre-wrap;
 }
 
 .iframe {
@@ -77,5 +83,14 @@
 @media (max-width: 900px) {
     .pinned-notes, .unpinned-notes {
         grid-template-columns: repeat(2, minmax(150px, 400px));
+    }
+}
+
+@media (max-width: 460px) {
+    .pinned-notes, .unpinned-notes {
+        grid-template-columns: minmax(150px, 400px);
+    }
+    .keep-container {
+        display: block;
     }
 }

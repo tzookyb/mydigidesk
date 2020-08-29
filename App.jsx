@@ -27,7 +27,7 @@ export class App extends React.Component {
                         <MenuBtn />
                         <img className="logo" src="assets/favicon.png" alt="" />
                         <div className="logo-text">igidesk</div>
-                        <Search currApp={this.state.currApp} />
+                        {(this.state.currApp === null) || <Search currApp={this.state.currApp} />}
                         <NavBar />
                     </header>
                     <main>

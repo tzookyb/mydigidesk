@@ -4,6 +4,18 @@ export class MenuBtn extends React.Component {
     state = {
         isMenuOpen: false,
     }
+    unsubscribe;
+    componentDidMount() {
+        this.unsubscribe = EventBus.on('burgerToggle', this.closeMenu);
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    closeMenu = () => {
+        this.setState({ isMenuOpen: false })
+    }
 
     onToggle = () => {
         this.setState(prevState => ({ isMenuOpen: !prevState.isMenuOpen }));

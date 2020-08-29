@@ -81,7 +81,7 @@ a, a:visited, a:hover, a:active {
     position: fixed;
     bottom: 50px;
     right: 50px;
-    z-index: 5;
+    z-index: 20;
     padding: 10px 40px;
     border-radius: 10px;
     border: 2px solid white;

@@ -26,9 +26,9 @@ export class Keep extends React.Component {
         else this.routeUpdate();
     }
     componentWillUnmount() {
+        this.props.updateCurrApp(null)
         this.unsubscribe();
     }
-
 
     refresh = () => {
         this.getNotes();
@@ -55,27 +55,30 @@ export class Keep extends React.Component {
         this.setState({ filterBy, displayNoteId }, this.getNotes);
     }
 
-    onNoteTrash = (note, restore = false) => {
-        if (note.isTrash && !restore) {
+    onNoteTrash = (note, isRestore = false) => {
+        if (note.isTrash && !isRestore) {
             keepService.removeNote(note.id)
                 .then(this.refresh());
+            EventBus.emit('notify', 'Note deleted for good...');
         } else {
             const status = note.isTrash ? false : true;
             if (!status && note.isPinned) this.onNotePin(note);
             keepService.updateNote(note.id, 'isTrash', status)
                 .then(this.refresh());
+            EventBus.emit('notify', (status) ? 'Note trashed' : 'Note restored');
         }
     }
 
     onNoteBgc = (noteId, color) => {
         keepService.updateNote(noteId, 'backgroundColor', color)
             .then(this.refresh());
-
     }
+
     onNotePin = (note) => {
         const status = note.isPinned ? false : true;
         keepService.updateNote(note.id, 'isPinned', status)
             .then(this.refresh());
+        EventBus.emit('notify', (status) ? 'Note pinned' : 'Note unpinned');
     }
 
     onNoteMail = (note) => {
@@ -91,6 +94,7 @@ export class Keep extends React.Component {
         }
         keepService.updateNote(note.id, 'labels', note.labels)
             .then(this.refresh())
+        EventBus.emit('notify', 'Label Changed');
     }
 
     onNoteSearch = (str) => {
@@ -111,7 +115,6 @@ export class Keep extends React.Component {
             onNoteMail: this.onNoteMail,
         }
 
-        if (!this.state.notes) return <div>Loading notes...</div>
         return (
             <React.Fragment>
                 <KeepSideBar labels={this.state.labels} />
@@ -121,6 +124,7 @@ export class Keep extends React.Component {
                         < KeepAddNote refresh={this.refresh} currFilter={this.state.filterBy} />
                         {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
                         {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
+                        {!pinnedNotes.length && !notes.length && <div className="no-notes">No notes to show.<br />change filter/search or create some...</div>}
                     </div>
                 </section >
             </React.Fragment>

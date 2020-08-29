@@ -36,6 +36,8 @@ class _KeepNoteDetails extends React.Component {
     }
     onChangeText = (ev) => {
         this.setState({ editedText: ev.target.innerText });
+        console.log("onChangeText -> ev.target.innerText", ev.target.innerText)
+
     }
 
     render() {

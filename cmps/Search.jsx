@@ -3,8 +3,8 @@ import { EventBus } from '../services/event-bus-service.js'
 export class Search extends React.Component {
 
     state = {
-        currApp: null,
-        currSearch: null
+        currApp: '',
+        currSearch: ''
     }
 
     componentDidMount() {
