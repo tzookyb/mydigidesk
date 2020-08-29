@@ -8,14 +8,14 @@ export class _MailSideBar extends React.Component {
         return (
             <div className="mail-sidebar-container">
                 <button className="compose-btn">Compose</button>
-                <NavLink className="side-bar-item" activeClassName="active-side-menu-2" to={"/mail"}>*icon* inbox</NavLink>
-                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/starred"}>*icon* Starred</NavLink>
-                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/sent"}>*icon* Sent</NavLink>
-                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/unread"}>*icon* unread</NavLink>
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail"}><span style={custom} class="material-icons">all_inbox</span>Inbox</NavLink>
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/starred"}><span style={custom} class="material-icons">star_rate</span>Starred</NavLink>
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/sent"}><span style={custom} class="material-icons">send</span>Sent</NavLink>
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/unread"}><span style={custom} class="material-icons">markunread</span>Unread</NavLink>
 
-                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/archived"}>*icon* Archived</NavLink>
-                
-                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/all"}>*icon* All Emails</NavLink> 
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/archived"}><span style={custom} class="material-icons">archive</span>Archived</NavLink>
+
+                <NavLink className="side-bar-item" activeClassName="active-side-menu" to={"/mail/all"}><span style={custom} class="material-icons">all_inbox</span>All Emails</NavLink>
             </div>
         )
     }
@@ -24,3 +24,10 @@ export class _MailSideBar extends React.Component {
 export const MailSideBar = withRouter(_MailSideBar)
 
 //should be in line 12 Inbox for all emails that status' are null
+
+const custom={
+    color: '#707071',
+    fontSize: '1.2em',
+    marginLeft: '1rem',
+    marginRight: '1.5rem'
+}
