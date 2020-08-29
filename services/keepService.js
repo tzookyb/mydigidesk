@@ -34,6 +34,15 @@ function _createDefaultNotes() {
     },
     {
         id: utilService.makeId(),
+        type: 'video',
+        content: { title: 'Memorize this song:', text: '', url: 'https://www.youtube.com/watch?v=WqSZAExM828' },
+        isPinned: false,
+        isTrash: false,
+        backgroundColor: '#ffffff',
+        labels: [],
+    },
+    {
+        id: utilService.makeId(),
         type: 'image',
         content: { title: 'Ham Po', text: '', url: 'https://media.giphy.com/media/l09ziOJeVS7SiIu05t/giphy.gif' },
         isPinned: false,
@@ -44,10 +53,10 @@ function _createDefaultNotes() {
     {
         id: utilService.makeId(),
         type: 'text',
-        content: { title: 'bank password', url: '', text: 'The bank password is 56347' },
+        content: { title: 'bank password', url: '', text: 'password is 56347' },
         isPinned: false,
         isTrash: false,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#a7ffeb',
         labels: [],
     },
     {
@@ -74,21 +83,12 @@ function _createDefaultNotes() {
         id: utilService.makeId(),
         type: 'text',
         content: {
-            title: 'ATM password', url: '', text: 'The ATM password is 1278'
+            title: 'Pancake Recipe', url: '', text: '1 eggs\n1.25 cup of flour'
         },
         isPinned: false,
         isTrash: false,
         backgroundColor: '#fbbc04',
         labels: ['Work', 'Personal'],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: { title: 'ATM password', url: '', text: 'The ATM password is 1278' },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#fff475',
-        labels: ['Personal'],
     },
     {
         id: utilService.makeId(),
@@ -103,20 +103,12 @@ function _createDefaultNotes() {
         id: utilService.makeId(),
         type: 'image',
         content: { title: 'You should eat your veggies!', text: '', url: 'https://media.giphy.com/media/54Y38YdCPe58XA0FpJ/giphy.gif' },
-        isPinned: false,
+        isPinned: true,
         isTrash: false,
         backgroundColor: '#ccff90',
         labels: [],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: { title: 'ATM password', url: '', text: 'The ATM password is 1278' },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#a7ffeb',
-        labels: [],
-    }]
+    }
+    ]
 }
 
 function _saveNotes() {

@@ -13,7 +13,6 @@ class _NavBar extends React.Component {
     }
 
     toggleMenu = () => {
-        console.log('hi')
         this.setState(prevState => ({ isShown: !prevState.isShown }))
     }
 

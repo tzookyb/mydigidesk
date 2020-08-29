@@ -2,13 +2,11 @@ import { EventBus } from '../services/event-bus-service.js'
 
 export class MenuBtn extends React.Component {
     state = {
-        currentPage: '',
         isMenuOpen: false,
     }
 
     onToggle = () => {
-        this.setState(prevState => { isMenuOpen: !prevState.isMenuOpen });
-        console.log('toggle')
+        this.setState(prevState => ({ isMenuOpen: !prevState.isMenuOpen }));
         EventBus.emit('menuToggle', '')
         EventBus.emit('navToggle', '')
     }
