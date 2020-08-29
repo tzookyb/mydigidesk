@@ -1,7 +1,10 @@
 .keep-sidebar {
+    position: fixed;
+    top: 4rem;
+    height: calc(100vh - 4rem);
     background-color: #d6e0f0;
     font-family: Roboto-medium;
-    min-width: 18rem;
+    min-width: 12rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -15,7 +18,7 @@
 
 .label-link {
     padding: 0.55rem;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }

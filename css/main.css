@@ -54,6 +54,9 @@ body {
 }
 
 .main-header {
+    position: fixed;
+    top:0;
+    z-index: 3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +66,9 @@ body {
 }
 
 main {
-    min-height: calc(100vh - 4rem);
+    margin-top: 4rem;
+    /* disabled to check if no need for height because it is in flex */
+    /* min-height: calc(100vh - 4rem); */
     display: flex;
     flex-direction: column;
 }
