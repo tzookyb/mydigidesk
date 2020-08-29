@@ -4,8 +4,13 @@
 }
 
 .keep-main-area {
-    /* flex-grow: 1; */
     margin-left: 12.5rem;
     margin-right: 0.5rem;
     max-width: 1200px;
+}
+
+@media (max-width: 700px) {
+    .keep-main-area {
+        margin-left: 0.5rem;
+    }
 }

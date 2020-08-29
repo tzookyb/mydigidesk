@@ -4,12 +4,14 @@ export class Notify extends React.Component {
         isShown: false,
         notification: ''
     }
-
+    
+    unsubscribe;
     componentDidMount() {
-        EventBus.on('notify', (message) => this.showNotification(message))
+        this.unsubscribe = EventBus.on('notify', (message) => this.showNotification(message))
     }
 
     componentWillUnmount() {
+        this.unsubscribe();
     }
 
     showNotification = (message) => {

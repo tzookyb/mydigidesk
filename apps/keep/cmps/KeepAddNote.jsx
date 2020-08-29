@@ -40,10 +40,11 @@ class _KeepAddNote extends React.Component {
             title: 'your note title...',
             isPinned: false,
             backgroundColor: '#ffffff',
-            labels: [filter],
+            labels: (filter === 'allnotes') ? [] : [filter],
         }
         keepService.createNote(note)
             .then(noteId => {
+                this.props.refresh();
                 this.props.history.push(`/keep/${filter}/${noteId}`)
             })
     }

@@ -7,6 +7,7 @@ import { Home } from 'pages/Home.jsx'
 import { NavBar } from 'cmps/NavBar.jsx'
 import { Notify } from 'cmps/Notify.jsx'
 import { Search } from 'cmps/Search.jsx'
+import { MenuBtn } from 'cmps/MenuBtn.jsx'
 
 export class App extends React.Component {
 
@@ -25,13 +26,13 @@ export class App extends React.Component {
         console.log(this.state.currApp)
         
     }
-    
-
+  
     render() {
         return (
             <React.Fragment>
                 <Router>
                     <header className="main-header">
+                        <MenuBtn />
                         <img className="logo" src="assets/favicon.png" alt="" />
                         <div className="logo-text">igidesk</div>
                         <Search currApp={this.state.currApp} />
