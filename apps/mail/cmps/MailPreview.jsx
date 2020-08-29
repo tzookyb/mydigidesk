@@ -13,10 +13,11 @@ export class MailPreview extends React.Component {
         const currLocation = this.props.properties.location.pathname
         const isRead = this.props.email.isRead
 
+
         return (
             <div className="email-item-container">
                 <div className={`list-item ${isRead ? 'is-read' : ''}`} >
-                    <ListControlsLeft />
+                    <ListControlsLeft email={this.props.email} onStar={this.props.onStar}/>
 
                     <NavLink className="list-item-details-container" to={`${currLocation}/details/${this.props.email.id}`} props={this.props}>
                         <div className="list-item-details" key={this.props.email.id}>

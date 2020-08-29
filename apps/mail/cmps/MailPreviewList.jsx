@@ -21,18 +21,16 @@ export class MailPreviewList extends React.Component {
     componentDidMount() {
         this.loadEmails()
         this.unsubscribe = EventBus.on('search', (data) => this.searchInMails(data))
-        
     }
 
     componentDidUpdate(prevProps, prevState) {
-
         if (this.props.location.pathname !== prevProps.location.pathname) this.loadEmails()
     }
 
     componentWillUnmount() {
         this.unsubscribe()
     }
-    
+
 
     loadEmails() {
         const currPath = this.props.location.pathname;
@@ -58,9 +56,22 @@ export class MailPreviewList extends React.Component {
         }
     }
 
-    searchInMails =(data)=> {
-        
+    searchInMails = (data) => {
+        mailService.getSearchResults(data)
+            .then(emails => this.setState({ emails: emails }))
+
+            // maybe add search to url results and after taking the search from params
+            // and implement the search when url is pasted
+        if (data === '') this.loadEmails()
     }
+
+    onStar = (props) => {
+        mailService.setStar(props.email.id)
+        console.log(this.state)
+        
+        this.loadEmails()
+    }
+
 
 
 
@@ -73,7 +84,7 @@ export class MailPreviewList extends React.Component {
             <div className="mail-cmp-container">
                 {emails.map(email => {
                     return (
-                        <MailPreview key={email.id} email={email} properties={this.props} />
+                        <MailPreview key={email.id} email={email} onStar={this.onStar} properties={this.props} />
                     )
                 })}
             </div>

@@ -1,5 +1,4 @@
 import { EventBus } from '../services/event-bus-service.js'
-import { MailPreviewList } from '../apps/mail/cmps/MailPreviewList.jsx'
 
 export class Search extends React.Component {
 
@@ -22,7 +21,6 @@ export class Search extends React.Component {
         let currType = ev.target.value
         this.setState({ currSearch: currType })
         EventBus.emit('search', currType)
-        console.log(currType)
     }
 
 

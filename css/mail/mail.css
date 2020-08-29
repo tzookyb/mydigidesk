@@ -129,8 +129,6 @@ a {
     z-index: 2;
 
     box-shadow: 0px 3px 13px -5px rgba(0, 0, 0, 0.75);
-    border-right: 1px solid rgb(221, 221, 221);
-    border-left: 1px solid rgb(221, 221, 221);
 }
 
 .item-name {
@@ -138,7 +136,11 @@ a {
     width: 24%;
 }
 
-/* .item-subject {} */
+.item-subject {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .item-subdetails-container {
     display: flex;
@@ -169,17 +171,32 @@ a {
 }
 
 .list-left-controls {
-    background-color: violet;
+    display: flex;
+    align-items: center;
     width: 10rem;
     cursor: pointer;
-    opacity: 0; 
+    opacity: 0.5;
+    margin: 0 1em;
+}
+
+.check-control {
+    margin-right: 1em;
 }
 
 .list-right-controls {
-    background-color: violet;
+    display: flex;
     width: 14rem;
     cursor: pointer;
     opacity: 0;
+    align-items: center;
+}
+
+.list-right-controls>* {
+    margin-left: 0.75rem;
+}
+
+.list-right-controls>*:hover {
+    color: rgb(90, 90, 90)
 }
 
 
@@ -189,6 +206,6 @@ a {
     background-color: #F4F7F7;
 }
 
-.is-read > .list-item-details-container > .list-item-details > * {
+.is-read>.list-item-details-container>.list-item-details>* {
     font-family: Roboto-light;
 }
