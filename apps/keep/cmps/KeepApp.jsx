@@ -115,12 +115,6 @@ export class Keep extends React.Component {
             onNoteMail: this.onNoteMail,
         }
 
-        if (!this.state.notes) return (
-            <section className="keep-container" >
-                <div>Loading notes...</div>
-            </section>
-        )
-
         return (
             <React.Fragment>
                 <KeepSideBar labels={this.state.labels} />
@@ -130,6 +124,7 @@ export class Keep extends React.Component {
                         < KeepAddNote refresh={this.refresh} currFilter={this.state.filterBy} />
                         {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
                         {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
+                        {!pinnedNotes.length && !notes.length && <div className="no-notes">No notes to show.<br />change filter/search or create some...</div>}
                     </div>
                 </section >
             </React.Fragment>
