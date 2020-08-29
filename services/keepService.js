@@ -29,8 +29,28 @@ function _createDefaultNotes() {
         content: { title: 'Before haircut, watch this', text: '', url: 'h32y6smVwjs' },
         isPinned: true,
         isTrash: false,
-        backgroundColor: '#fbbc04',
+        backgroundColor: '#aecbfa',
         labels: ['Fun', 'Videos I like'],
+    },
+    {
+        id: utilService.makeId(),
+        type: 'text',
+        content: {
+            title: 'Pancake Recipe', url: '', text: `
+            1 Kitchen
+            1 egg
+            1.25 cup of flour
+            70g melted butter
+            1 spoon baking powder
+            1 cup of milk
+            vanila extract
+            1 spoon sugar
+            tons of maple`
+        },
+        isPinned: false,
+        isTrash: false,
+        backgroundColor: '#fbbc04',
+        labels: ['Cooking'],
     },
     {
         id: utilService.makeId(),
@@ -97,26 +117,6 @@ function _createDefaultNotes() {
         isTrash: false,
         backgroundColor: '#f28b82',
         labels: ['Spiritual'],
-    },
-    {
-        id: utilService.makeId(),
-        type: 'text',
-        content: {
-            title: 'Pancake Recipe', url: '', text: `
-            1 Kitchen
-            1 egg
-            1.25 cup of flour
-            70g melted butter
-            1 spoon baking powder
-            1 cup of milk
-            vanila extract
-            1 spoon sugar
-            tons of maple`
-        },
-        isPinned: false,
-        isTrash: false,
-        backgroundColor: '#fbbc04',
-        labels: ['Cooking'],
     },
     {
         id: utilService.makeId(),
