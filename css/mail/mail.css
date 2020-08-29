@@ -66,20 +66,18 @@ a {
 /* SIDEBAR */
 
 .active-side-menu {
-    background-color: #bbbbbb83;
+    background-color: #E9EAED;
     border-radius: 0em 2em 2em 0em;
-    font-family: Roboto-medium;
-
+    font-family: Roboto-bold;
 }
 
 .side-bar-item {
     padding: 0.55rem;
     width: 90%;
-
 }
 
 .side-bar-item:hover {
-    background-color: #bbbbbb83;
+    background-color: #E9EAED;
     border-radius: 0em 2em 2em 0em;
 }
 
