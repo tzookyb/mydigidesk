@@ -6,8 +6,26 @@ import { Keep } from 'apps/keep/cmps/KeepApp.jsx'
 import { Home } from 'pages/Home.jsx'
 import { NavBar } from 'cmps/NavBar.jsx'
 import { Notify } from 'cmps/Notify.jsx'
+import { Search } from 'cmps/Search.jsx'
 
 export class App extends React.Component {
+
+
+    state = {
+        currApp: null
+    }
+
+    updateCurrApp = (currApp) => {
+        this.setState({ currApp })
+        console.log('works')
+        
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.state.currApp)
+        
+    }
+    
 
     render() {
         return (
@@ -16,13 +34,13 @@ export class App extends React.Component {
                     <header className="main-header">
                         <img className="logo" src="assets/favicon.png" alt="" />
                         <div className="logo-text">igidesk</div>
-                        <div className="search">Search Component Here</div>
+                        <Search currApp={this.state.currApp} />
                         <NavBar />
                     </header>
                     <main>
 
                         <Switch>
-                            <Route to component={Mail} path="/mail" />
+                            <Route path="/mail" render={()=> <Mail updateCurrApp={this.updateCurrApp} />} />
                             <Route exact to component={Keep} path="/keep/:filter" />
                             <Route exact to component={Keep} path="/keep/:filter/:noteId" />
                             <Route to component={Home} path="/" />
@@ -34,3 +52,7 @@ export class App extends React.Component {
         )
     }
 }
+{/* <Route to component={Mail} path="/mail" /> */}
+
+
+{/* <Route to component={Mail} updateCurrApp={() => this.updateCurrApp()} path="/mail" /> */}

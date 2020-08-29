@@ -112,3 +112,18 @@ input:focus, textarea:focus, select:focus {
     white-space: nowrap;
     direction: ltr;
 }
+
+/* Search */
+
+.search-bar-container{
+    width: 30%;
+    height: 70%;
+}
+
+.search-bar{
+    background-color:#F2F3F4;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+    border: 0px;
+}

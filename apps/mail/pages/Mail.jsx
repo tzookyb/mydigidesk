@@ -8,6 +8,13 @@ const { Route, Switch } = ReactRouterDOM;
 
 export class Mail extends React.Component {
 
+
+
+    componentDidMount() {
+        this.props.updateCurrApp('mail')
+    }
+    
+
     render() {
 
         return (

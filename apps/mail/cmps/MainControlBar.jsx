@@ -11,7 +11,7 @@ export class MainControlBar extends React.Component {
                         <h4>delete</h4>
                         <h4>mark unread</h4>
                     </div>
-                        <input className="search-bar" type="text" placeholder="search in mails" />
+                        {/* <input className="search-bar" type="text" placeholder="search in mails" /> */}
                 </div>
             </div>
         )

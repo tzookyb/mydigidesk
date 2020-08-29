@@ -20,12 +20,6 @@
     justify-content: space-evenly;
 }
 
-.search-bar{
-    height: 80%;
-    width: 30%;
-    border-radius: 0.7em;
-}
-
 .main-inner-controls > *{
     height: 80%;
     height: 100%;

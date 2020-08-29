@@ -1,6 +1,8 @@
 
 import { MailPreview } from './MailPreview.jsx'
 import { mailService } from '../../../services/mailService.js'
+import { EventBus } from '../../../services/event-bus-service.js'
+
 const { Link, Switch, Route } = ReactRouterDOM;
 
 
@@ -14,20 +16,29 @@ export class MailPreviewList extends React.Component {
 
     }
 
+    unsubscribe;
+
     componentDidMount() {
         this.loadEmails()
+        this.unsubscribe = EventBus.on('search', (data) => this.searchInMails(data))
+        
     }
 
     componentDidUpdate(prevProps, prevState) {
-        
+
         if (this.props.location.pathname !== prevProps.location.pathname) this.loadEmails()
     }
+
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+    
 
     loadEmails() {
         const currPath = this.props.location.pathname;
 
         if (currPath === '/mail/all') {
-            mailService.getAllEmails() 
+            mailService.getAllEmails()
                 .then(emails => this.setState({ emails: emails, category: 'all' }))
         } else if (currPath === '/mail/unread') {
             mailService.getAllUnreadEmails()
@@ -44,7 +55,11 @@ export class MailPreviewList extends React.Component {
         } else if (currPath === '/mail') {
             mailService.getAllInboxEmails()
                 .then(emails => this.setState({ emails: emails, category: 'inbox' }))
-        } 
+        }
+    }
+
+    searchInMails =(data)=> {
+        
     }
 
 
@@ -58,7 +73,7 @@ export class MailPreviewList extends React.Component {
             <div className="mail-cmp-container">
                 {emails.map(email => {
                     return (
-                        <MailPreview key={ email.id } email={ email } properties={this.props} />
+                        <MailPreview key={email.id} email={email} properties={this.props} />
                     )
                 })}
             </div>
