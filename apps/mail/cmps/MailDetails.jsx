@@ -15,14 +15,12 @@ export class MailDetails extends React.Component {
             .then(email => this.setState({ currEmail: email }))
     }
 
-
-
     render() {
 
 
         if (!this.state.currEmail) return <h4>Loading...</h4>
         const currEmail = this.state.currEmail
-        if (!currEmail.isRead) currEmail.isRead = true
+        if (!currEmail.isRead) mailService.markRead(currEmail.id) // here it sets the model without the service! fix this
 
         return (
             <div className="mail-details-container">

@@ -8,7 +8,9 @@ export const mailService = {
     getAllArchivedEmails,
     getSearchResults,
     getAllSentEmails,
-    setStar
+    setStar,
+    setRemove,
+    setArchive
 }
 
 import {utilService} from './utilService.js'
@@ -326,7 +328,8 @@ var emails = [{
 
 function markRead(id) {
     const currEmail = emails.find(email => email.id === id)
-    if (!currEmail.isRead) currEmail.isRead === true
+    // if (!currEmail.isRead) currEmail.isRead = true    
+    currEmail.isRead = !currEmail.isRead
 }
 
 function getAllEmails() {
@@ -372,7 +375,7 @@ function getAllSentEmails() {
 function getAllStarredEmails(){
     const currStarredEmails = []
     emails.map(email => {
-        if (email.isStar) currStarredEmails.push(email)
+        if (email.isStar && email.status !== 'archived') currStarredEmails.push(email)
     })
     return Promise.resolve(currStarredEmails)
 }
@@ -396,5 +399,17 @@ function setStar(id){
     emails.find(email => {
         if (email.id === id) email.isStar = !email.isStar
     })
-    
+}
+
+function setArchive(id){
+    emails.find(email => {
+        if (email.id === id) email.status = 'archived'
+    })    
+}
+
+function setRemove(id) {
+    let emailIdx = emails.findIndex((email, idx) => {
+        if (email.id === id) return idx
+    })
+    emails.splice(emailIdx, 1)
 }
