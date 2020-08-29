@@ -26,6 +26,7 @@ export class Keep extends React.Component {
         else this.routeUpdate();
     }
     componentWillUnmount() {
+        this.props.updateCurrApp(null)
         this.unsubscribe();
     }
 
