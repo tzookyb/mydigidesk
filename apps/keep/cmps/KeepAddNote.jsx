@@ -1,6 +1,7 @@
 import { keepService } from '../../../services/keepService.js'
+const { withRouter } = ReactRouterDOM
 
-export class KeepAddNote extends React.Component {
+class _KeepAddNote extends React.Component {
     state = {
         input: '',
         placeHolder: 'Enter new text note',
@@ -29,6 +30,24 @@ export class KeepAddNote extends React.Component {
         }
     }
 
+    createNewTextNote = () => {
+        console.log(this.state.type);
+        if (this.state.type !== 'text') return;
+        const filter = this.props.currFilter;
+        const note = {
+            type: 'text',
+            content: 'your note content...',
+            title: 'your note title...',
+            isPinned: false,
+            backgroundColor: '#ffffff',
+            labels: [filter],
+        }
+        keepService.createNote(note)
+            .then(noteId => {
+                this.props.history.push(`/keep/${filter}/${noteId}`)
+            })
+    }
+
     saveNote = () => {
         const data = {
             type: this.state.type,
@@ -48,9 +67,9 @@ export class KeepAddNote extends React.Component {
     render() {
         return (
             <div className="add-note">
-                <textarea className="add-note-input" onChange={(ev) => this.changeInput(ev.target.value)} value={this.state.input} placeholder={this.state.placeHolder} type="search" ></textarea>
+                <textarea className="add-note-input" onChange={(ev) => this.changeInput(ev.target.value)} onClick={this.createNewTextNote} value={this.state.input} placeholder={this.state.placeHolder} type="search" ></textarea>
                 <div className="add-note-icons">
-                    <span style={submitStyle} className="material-icons add-btn submit" onClick={this.saveNote}>note_add</span>
+                    {(this.state.type !== 'text') && <span style={submitStyle} className="material-icons add-btn submit" onClick={this.saveNote}>note_add</span>}
                     <span style={iconStyle} className="material-icons add-btn text" onClick={() => this.changeType('text')}>sticky_note_2</span>
                     <span style={iconStyle} className="material-icons add-btn image" onClick={() => this.changeType('image')}>image</span>
                     <span style={iconStyle} className="material-icons add-btn video" onClick={() => this.changeType('video')}>ondemand_video</span>
@@ -68,3 +87,5 @@ const submitStyle = {
     fontSize: '35px',
     color: '#2a9df4'
 }
+
+export const KeepAddNote = withRouter(_KeepAddNote);

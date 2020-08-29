@@ -15,12 +15,11 @@
 
 .note-details {
     position: relative;
+    display: flex;
+    flex-direction: column;
     min-width: 330px;
     max-width: 80vw;
     min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     z-index: 5;
     padding: 10px;
     border-radius: 8px;

@@ -36,6 +36,6 @@ function makeId(length = 8) {
 function longText(text, length) {
     if (text.length > length) {
         text = text.slice(0, length - 3) + '...';
-        return Promise.resolve(text);
-    } else return Promise.resolve(text);
+        return text;
+    } else return text;
 }

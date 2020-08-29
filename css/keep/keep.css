@@ -4,7 +4,7 @@
 }
 
 .keep-main-area {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     margin-left: 12.5rem;
     margin-right: 0.5rem;
     max-width: 1200px;

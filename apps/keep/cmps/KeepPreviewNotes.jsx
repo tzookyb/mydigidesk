@@ -6,7 +6,7 @@ const { Link } = ReactRouterDOM;
 
 export function KeepPreviewNotes({ areaClass, currFilter, notes, onNoteTrash, onNoteBgc, onNotePin, onNoteMail, onNoteLabel }) {
     const trashView = (currFilter === 'trash') ? true : false;
-
+    if (!notes) return null;
     return (
         <div className={areaClass}>
             {notes.map((note) => {

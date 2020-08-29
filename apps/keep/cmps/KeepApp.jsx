@@ -106,7 +106,7 @@ export class Keep extends React.Component {
                 <section className="keep-container" >
                     <div className="keep-main-area">
                         {this.state.displayNoteId && <KeepNoteDetails refresh={this.refresh} currFilter={props.currFilter} noteId={this.state.displayNoteId} {...props} />}
-                        < KeepAddNote refresh={this.refresh} />
+                        < KeepAddNote refresh={this.refresh} currFilter={this.state.filterBy} />
                         {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
                         {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
                     </div>

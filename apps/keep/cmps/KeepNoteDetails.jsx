@@ -5,7 +5,7 @@ import { Controls } from 'note/Controls.jsx'
 import { EventBus } from '../../../services/event-bus-service.js'
 const { withRouter } = ReactRouterDOM
 
-export class _KeepNoteDetails extends React.Component {
+class _KeepNoteDetails extends React.Component {
     state = {
         note: '',
         editedTitle: '',
@@ -45,9 +45,11 @@ export class _KeepNoteDetails extends React.Component {
             <div className="detail-container" onClick={() => this.props.history.goBack()}>
                 <div onClick={(ev) => ev.stopPropagation()} className="note-details" style={{ backgroundColor: note.backgroundColor }}>
                     <div className="note-inner">
-                        <Title onInput={this.onChangeTitle} edit={true} title={note.content.title} />
-                        {(note.type === 'text') ? <Content onInput={this.onChangeText} edit={true} note={note} /> :
-                            <Content note={note} />}
+                        <div>
+                            <Title onInput={this.onChangeTitle} edit={true} title={note.content.title} />
+                            {(note.type === 'text') ? <Content onInput={this.onChangeText} edit={true} note={note} /> :
+                                <Content note={note} edit={true} />}
+                        </div>
                         <Controls note={note} trashView={this.props.trashView} onNoteTrash={this.props.onNoteTrash} onNotePin={this.props.onNotePin} onNoteBgc={this.props.onNoteBgc} onNoteMail={this.props.onNoteMail} onNoteLabel={this.props.onNoteLabel} />
                     </div>
                 </div>

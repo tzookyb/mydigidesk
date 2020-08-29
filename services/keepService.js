@@ -184,7 +184,7 @@ function createNote(data) {
     var content;
     switch (data.type) {
         case 'text':
-            content = { title: '', text: data.content }
+            content = { title: data.title||'', text: data.content }
             break;
         case 'image':
             content = { title: '', url: data.content }
@@ -207,7 +207,7 @@ function createNote(data) {
     _saveNotes();
     _mapLabels();
     console.log(note)
-    return Promise.resolve();
+    return Promise.resolve(note.id);
 }
 
 function _getVideoUrl(data) {
