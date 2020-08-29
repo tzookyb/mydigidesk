@@ -1,7 +1,8 @@
 export const utilService = {
     getRandomInteger,
     getRandomColor,
-    makeId
+    makeId,
+    longText
 }
 
 // returns random numbers
@@ -29,4 +30,12 @@ function makeId(length = 8) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return txt;
+}
+
+// long text
+function longText(text, length) {
+    if (text.length > length) {
+        text = text.slice(0, length - 3) + '...';
+        return text;
+    } else return text
 }
