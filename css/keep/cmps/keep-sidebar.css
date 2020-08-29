@@ -1,7 +1,6 @@
 .keep-sidebar {
     background-color: #d6e0f0;
     font-family: Roboto-medium;
-    height: 100vh;
     min-width: 18rem;
     display: flex;
     flex-direction: column;
