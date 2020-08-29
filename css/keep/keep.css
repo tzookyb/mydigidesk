@@ -1,9 +1,11 @@
 .keep-container {
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
 }
 
 .keep-main-area {
-    margin: 0 auto;
+    flex-grow: 1;
+    margin-left: 12.5rem;
+    margin-right: 0.5rem;
     max-width: 1200px;
 }

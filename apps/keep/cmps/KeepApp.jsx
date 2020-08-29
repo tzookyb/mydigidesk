@@ -101,15 +101,17 @@ export class Keep extends React.Component {
 
         if (!this.state.notes) return <div>Loading notes...</div>
         return (
-            <section className="keep-container" >
+            <React.Fragment>
                 <KeepSideBar labels={this.state.labels} />
-                <div className="keep-main-area">
-                    {this.state.displayNoteId && <KeepNoteDetails refresh={this.refresh} currFilter={props.currFilter} noteId={this.state.displayNoteId} {...props} />}
-                    < KeepAddNote refresh={this.refresh} />
-                    {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
-                    {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
-                </div>
-            </section >
+                <section className="keep-container" >
+                    <div className="keep-main-area">
+                        {this.state.displayNoteId && <KeepNoteDetails refresh={this.refresh} currFilter={props.currFilter} noteId={this.state.displayNoteId} {...props} />}
+                        < KeepAddNote refresh={this.refresh} />
+                        {(pinnedNotes.length) ? <KeepPreviewNotes areaClass="pinned-notes" notes={pinnedNotes} {...props} /> : ''}
+                        {(notes.length) ? <KeepPreviewNotes areaClass="unpinned-notes" notes={notes} {...props} /> : ''}
+                    </div>
+                </section >
+            </React.Fragment>
         )
     }
 }
