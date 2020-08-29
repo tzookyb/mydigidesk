@@ -31,7 +31,6 @@ export class MailPreviewList extends React.Component {
         this.unsubscribe()
     }
 
-
     loadEmails() {
         const currPath = this.props.location.pathname;
 
@@ -67,13 +66,23 @@ export class MailPreviewList extends React.Component {
 
     onStar = (props) => {
         mailService.setStar(props.email.id)
-        console.log(this.state)
-        
         this.loadEmails()
     }
 
+    onArchive =(props)=>{
+        mailService.setArchive(props.email.id)
+        this.loadEmails()
+    }
 
+    onRemove =(props)=>{
+        mailService.setRemove(props.email.id)        
+        this.loadEmails()
+    }
 
+    onMarkRead =(props)=>{
+        mailService.markRead(props.email.id)
+        this.loadEmails()
+    }
 
     render() {
 
@@ -84,7 +93,13 @@ export class MailPreviewList extends React.Component {
             <div className="mail-cmp-container">
                 {emails.map(email => {
                     return (
-                        <MailPreview key={email.id} email={email} onStar={this.onStar} properties={this.props} />
+                        <MailPreview key={email.id} email={email} 
+                        onStar={this.onStar} 
+                        properties={this.props}
+                        onArchive={this.onArchive}
+                        onRemove={this.onRemove}
+                        onMarkRead={this.onMarkRead}
+                        />
                     )
                 })}
             </div>

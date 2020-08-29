@@ -8,10 +8,10 @@ export class ListControlsLeft extends React.Component {
 
     render() {
 
-        const unStarred = <span style={greyStyle} class="material-icons">star_outline</span>
-        const starred = <span style={yellowStyle} class="material-icons">star</span>
+        const unStarred = <span style={greyStyle} className="material-icons">star_outline</span>
+        const starred = <span style={yellowStyle} className="material-icons">star</span>
 
-        const unchecked = <span style={greyStyle} class="material-icons">check_box_outline_blank</span>
+        const unchecked = <span style={greyStyle} className="material-icons">check_box_outline_blank</span>
         
 
         return (
@@ -34,4 +34,4 @@ const greyStyle={
     color: 'rgb(89, 89, 89)'
 }
 
-// need to finish multi[le selection and deleting
+// need to finish multiple selection and deleting

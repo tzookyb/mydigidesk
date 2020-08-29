@@ -26,7 +26,7 @@ export class MailPreview extends React.Component {
                             {/* <p className="item-body"> {this.props.email.body}</p> */}
                         </div>
                     </NavLink>
-                    <ListControlsRight />
+                    <ListControlsRight email={this.props.email} onArchive={this.props.onArchive} onRemove={this.props.onRemove} onMarkRead={this.props.onMarkRead}/>
                 </div>
             </div>
 
