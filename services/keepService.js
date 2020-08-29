@@ -81,12 +81,13 @@ function _createDefaultNotes() {
         id: utilService.makeId(),
         type: 'text',
         content: {
-            title: 'Haiku I Wrote', url: '', text: `An old silent pond..
+            title: 'Haiku I Wrote', url: '', text: `
+            An old silent pond..
             A frog jumps into the pond,
-                splash! Silence again.
+            splash! Silence again.
 
             Autumn moonlight-
-                a worm digs silently
+            a worm digs silently
             into the chestnut.
 
             In the twilight rain
@@ -101,7 +102,16 @@ function _createDefaultNotes() {
         id: utilService.makeId(),
         type: 'text',
         content: {
-            title: 'Pancake Recipe', url: '', text: '1Kitchen, 2 eggs\n1.25 cup of flour'
+            title: 'Pancake Recipe', url: '', text: `
+            1 Kitchen
+            1 egg
+            1.25 cup of flour
+            70g melted butter
+            1 spoon baking powder
+            1 cup of milk
+            vanila extract
+            1 spoon sugar
+            tons of maple`
         },
         isPinned: false,
         isTrash: false,
