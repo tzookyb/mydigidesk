@@ -1,4 +1,4 @@
-# mydigidesk
+# digidesk
 #### check it out at: https://tzookyb.github.io/mydigidesk/
 project for Coding Academy
 
