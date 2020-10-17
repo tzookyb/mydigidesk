@@ -1,6 +1,7 @@
+<img src="screenshot.png" align="right" width=500> 
 # digidesk
 #### check it out at: https://tzookyb.github.io/mydigidesk/
-<img src="screenshot.png" align="right" width=500> 
+
 
 Project for Coding Academy
 
